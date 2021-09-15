@@ -1,0 +1,489 @@
+{
+  "x-generator": "NSwag v13.13.2.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v11.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "Eraware API Logger",
+    "version": "0.1.0"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/Item/CreateItem": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Creates a new item.",
+        "operationId": "Item_CreateItem",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "body",
+            "description": "The item to create.",
+            "schema": {
+              "$ref": "#/definitions/CreateItemDTO"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemViewModel"
+            }
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "Bad Request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "x-nullable": false,
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Exception"
+            }
+          }
+        }
+      }
+    },
+    "/Item/GetItemsPage": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Gets a paged and sorted list of items matching a certain query.",
+        "operationId": "Item_GetItemsPage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Query",
+            "in": "query",
+            "description": "Gets or sets the optional search query.",
+            "x-nullable": true
+          },
+          {
+            "type": "integer",
+            "name": "Page",
+            "in": "query",
+            "description": "Gets or sets the page number to get.",
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "PageSize",
+            "in": "query",
+            "description": "Gets or sets the size of pages.",
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
+            "name": "Descending",
+            "in": "query",
+            "description": "Gets or sets a value indicating whether the items should be ordered descending.",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItemsPageViewModel"
+            }
+          },
+          "500": {
+            "x-nullable": false,
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Exception"
+            }
+          }
+        }
+      }
+    },
+    "/Item/DeleteItem": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Deletes an existing item.",
+        "operationId": "Item_DeleteItem",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "itemId",
+            "in": "query",
+            "required": true,
+            "description": "The id of the item to delete.",
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "x-nullable": false,
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Exception"
+            }
+          }
+        }
+      }
+    },
+    "/Item/UserCanEdit": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Checks if a user can edit the current items.",
+        "operationId": "Item_UserCanEdit",
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "500": {
+            "x-nullable": false,
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Exception"
+            }
+          }
+        }
+      }
+    },
+    "/Item/UpdateItem": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Updates an existing item.",
+        "operationId": "Item_UpdateItem",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "body",
+            "description": "The new information about the item, UpdateItemDTO.",
+            "schema": {
+              "$ref": "#/definitions/UpdateItemDTO"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "Malformed request",
+            "schema": {
+              "$ref": "#/definitions/ArgumentException"
+            }
+          },
+          "500": {
+            "x-nullable": false,
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Exception"
+            }
+          }
+        }
+      }
+    },
+    "/Localization/GetLocalization": {
+      "get": {
+        "tags": [
+          "Localization"
+        ],
+        "summary": "Gets localization keys and values.",
+        "operationId": "Localization_GetLocalization",
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocalizationViewModel"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ItemViewModel": {
+      "type": "object",
+      "description": "Represents the basic information about an item.",
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "description": "Gets or sets the id of the item.",
+          "format": "int32"
+        },
+        "Name": {
+          "type": "string",
+          "description": "Gets or sets the name of the item.",
+          "minLength": 1
+        },
+        "Description": {
+          "type": "string",
+          "description": "Gets or sets the item description."
+        }
+      }
+    },
+    "Exception": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "InnerException": {
+          "$ref": "#/definitions/Exception"
+        },
+        "StackTrace": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateItemDTO": {
+      "type": "object",
+      "description": "Data transfer object to create a new item.",
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Gets or sets the name for the item.",
+          "minLength": 1
+        },
+        "Description": {
+          "type": "string",
+          "description": "Gets or sets the description of the item."
+        }
+      }
+    },
+    "ItemsPageViewModel": {
+      "type": "object",
+      "description": "Represents a page of items, Item.",
+      "required": [
+        "Page",
+        "ResultCount",
+        "PageCount"
+      ],
+      "properties": {
+        "Items": {
+          "type": "array",
+          "description": "Gets or sets a list of items for this page.",
+          "items": {
+            "$ref": "#/definitions/ItemViewModel"
+          }
+        },
+        "Page": {
+          "type": "integer",
+          "description": "Gets or sets the current page number.",
+          "format": "int32"
+        },
+        "ResultCount": {
+          "type": "integer",
+          "description": "Gets or sets the total amount of results found.",
+          "format": "int32"
+        },
+        "PageCount": {
+          "type": "integer",
+          "description": "Gets or sets the total amount of pages available.",
+          "format": "int32"
+        }
+      }
+    },
+    "ArgumentException": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SystemException"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Message": {
+              "type": "string"
+            },
+            "ParamName": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "SystemException": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "UpdateItemDTO": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CreateItemDTO"
+        },
+        {
+          "type": "object",
+          "description": "Data transfer object used to update an item.",
+          "required": [
+            "Id"
+          ],
+          "properties": {
+            "Id": {
+              "type": "integer",
+              "description": "Gets or sets the id of the item to edit.",
+              "format": "int32",
+              "maximum": 2147483647.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      ]
+    },
+    "LocalizationViewModel": {
+      "type": "object",
+      "description": "A viewmodel that exposes all resource keys in strong types.",
+      "properties": {
+        "ModelValidation": {
+          "description": "Localized strings present the ModelValidation resources.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelValidationInfo"
+            }
+          ]
+        },
+        "UI": {
+          "description": "Localized strings present the UI resources.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UIInfo"
+            }
+          ]
+        }
+      }
+    },
+    "ModelValidationInfo": {
+      "type": "object",
+      "description": "Localized strings for the ModelValidation resources.",
+      "properties": {
+        "IdGreaterThanZero": {
+          "type": "string",
+          "description": "Gets or sets the IdGreaterThanZero localized text.",
+          "example": "The Id must be an integer bigger than 0"
+        },
+        "NameRequired": {
+          "type": "string",
+          "description": "Gets or sets the NameRequired localized text.",
+          "example": "The name is required"
+        }
+      }
+    },
+    "UIInfo": {
+      "type": "object",
+      "description": "Localized strings for the UI resources.",
+      "properties": {
+        "AddItem": {
+          "type": "string",
+          "description": "Gets or sets the AddItem localized text.",
+          "example": "Add Item"
+        },
+        "Cancel": {
+          "type": "string",
+          "description": "Gets or sets the Cancel localized text.",
+          "example": "Cancel"
+        },
+        "Create": {
+          "type": "string",
+          "description": "Gets or sets the Create localized text.",
+          "example": "Create"
+        },
+        "Delete": {
+          "type": "string",
+          "description": "Gets or sets the Delete localized text.",
+          "example": "Delete"
+        },
+        "DeleteItemConfirm": {
+          "type": "string",
+          "description": "Gets or sets the DeleteItemConfirm localized text.",
+          "example": "Are you sure you want to delete this item?"
+        },
+        "Description": {
+          "type": "string",
+          "description": "Gets or sets the Description localized text.",
+          "example": "Description"
+        },
+        "Edit": {
+          "type": "string",
+          "description": "Gets or sets the Edit localized text.",
+          "example": "Edit"
+        },
+        "LoadMore": {
+          "type": "string",
+          "description": "Gets or sets the LoadMore localized text.",
+          "example": "Load More"
+        },
+        "Name": {
+          "type": "string",
+          "description": "Gets or sets the Name localized text.",
+          "example": "Name"
+        },
+        "No": {
+          "type": "string",
+          "description": "Gets or sets the No localized text.",
+          "example": "No"
+        },
+        "Save": {
+          "type": "string",
+          "description": "Gets or sets the Save localized text.",
+          "example": "Save"
+        },
+        "SearchPlaceholder": {
+          "type": "string",
+          "description": "Gets or sets the SearchPlaceholder localized text.",
+          "example": "Search"
+        },
+        "ShownItems": {
+          "type": "string",
+          "description": "Gets or sets the ShownItems localized text.",
+          "example": "Showing {0} of {1} items."
+        },
+        "Yes": {
+          "type": "string",
+          "description": "Gets or sets the Yes localized text.",
+          "example": "Yes"
+        }
+      }
+    }
+  }
+}

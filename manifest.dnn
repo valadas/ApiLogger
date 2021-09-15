@@ -1,0 +1,88 @@
+<dotnetnuke version="5.0" type="Package">
+  <packages>
+    <package name="Eraware_ApiLogger" type="Module" version="00.01.00">
+      <friendlyName>API Logger</friendlyName>
+      <description>API Logger</description>
+      <iconFile>~/DesktopModules/ApiLogger/resources/images/module-icon.png</iconFile>
+      <owner>
+        <name>Daniel Valadas</name>
+        <organization>Eraware</organization>
+        <url>info@danielvaladas.com</url>
+        <email>info@danielvaladas.com</email>
+      </owner>
+      <license src="LICENSE">
+      </license>
+      <releaseNotes src="ReleaseNotes.html" />
+      <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="coreVersion">09.10.01</dependency>
+      </dependencies>
+      <components>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>Eraware.Modules.ApiLogger.dll</name>
+              <path>bin</path>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.dll</name>
+              <path>bin</path>
+              <version>6.4.4</version>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.SqlServer.dll</name>
+              <path>bin</path>
+              <version>6.4.4</version>
+            </assembly>
+            <assembly>
+              <name>NSwag.Annotations.dll</name>
+              <path>bin</path>
+              <version>13.13.2</version>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>API Logger</moduleName>
+            <foldername>Eraware_ApiLogger</foldername>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>API Logger</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/ApiLogger/resources/views/view.html</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Cleanup" version="00.01.00" glob="DesktopModules/Contacts/resources/**/*" />
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/ApiLogger/resources</basePath>
+            <resourceFile>
+              <name>resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>bin</basePath>
+            <resourceFile>
+              <name>symbols.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Project Architecture </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Project Architecture ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search main-content">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="project-architecture">Project Architecture</h1>
+
+<h2 id="spa---web-api">SPA - Web API</h2>
+<p>This type of Dnn module is commonly knows as a SPA (Single Page Application) module. This common naming does not really reflect correctly the module type. In fact it uses the Dnn <code>HtmlModule</code> pipeline. This means the server is not responsible at all for rendering the frontend, it simply serves static html/css/js files to the frontend.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>One small exception to this statement is that Dnn will replace some known tokens in your html view to inject Dnn specific things like the ModuleId for instance.</p>
+</div>
+<p>In order to interact with the server (backend), the frontend will use a REST API to call a backend controller. It can GET some information or POST to perform some action. For security and performance reasons, we may want to have more or less information passed either when we GET or when we POST data.</p>
+<p>The graph below explains the various objects used to hold this data.
+An entity represents one database table row.</p>
+<ul>
+<li><strong>IEntity</strong> is an interface that describes properties that any entity will have. It exists so we can later have Generic implementations of classes.</li>
+<li><strong>BaseEntity</strong> is a base class. Since interfaces cannot have code, the BaseEntity is used to include code that should run for every entity no matter it's type. For instance when we create a new entity, we inject automatically the CreatedAt and UpdatedAt to the current date and time, we also initialize the CreatedByUserId and UpdatedByUserId to -1 by default.</li>
+<li><strong>Item</strong> this is one specific entity, in our simple case here an Item simply has a <code>Name</code> and <code>Description</code></li>
+</ul>
+<h3 id="request">Request</h3>
+<p>When we request the system to create an item, we do not have to pass a full <code>Item</code> as the <code>BaseEntity</code> already handles that for use for any type of entity. In some cases like for the CreatedByUserId, for security reasons, we don't want to user to tell use his userId from the frontend, we need Dnn to tell us for sure who is logged in. To handle that scenario, the minimum amount of data to create a new Item is just the <code>Name</code> and <code>Desciption</code> so we use a <strong>Data Transfer Object (DTO)</strong> specific for that operation called <code>CreateItemDTO</code>. It's name matches the operation verb, note here we have no Id, because we are creating a new one. If you implement an update method, you may want to create an <code>UpdateItemDTO</code> that will have an <code>Id</code> too.</p>
+<h3 id="response">Response</h3>
+<p>Similarly, we may not want to send all the information about an entity back to the frontend. Let's suppose we have a public list of Items, we probably don't want to expose the CreatedByUserId for security reasons and the CreatedAt because we may not display it. For this scenario we have a <code>ItemViewModel</code> that only has the <code>Id</code>, <code>Name</code> and <code>Description</code> properties.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Notice we have a constructor here that takes an <code>Item</code> to quickly create a new ItemViewModel from an Item</p>
+</div>
+<pre><code class="lang-mermaid">classDiagram
+    class CreateItemDTO
+    CreateItemDTO : +String Name
+    CreateItemDTO : +String Description
+
+    class IEntity
+    IEntity : +Int Id
+    IEntity : +DateTime CreatedAt
+    IEntity : +Int CreatedByUserId
+    IEntity : +DateTime UpdatedAt
+    IEntity : +Int UpdatedByUserId
+
+    class BaseEntity
+    BaseEntity : +Int Id
+    BaseEntity : +DateTime CreatedAt
+    BaseEntity : +Int CreatedByUserId
+    BaseEntity : +DateTime UpdatedAt
+    BaseEntity : +Int UpdatedByUserId
+
+    class Item
+    Item : String Name
+    Item : String Description
+
+    BaseEntity &lt;|-- Item
+    IEntity &lt;|-- BaseEntity
+
+    class ItemViewModel
+    ItemViewModel : +Int Id
+    ItemViewModel : +String Name
+    ItemViewModel : +String Description
+    ItemViewModel : +ItemViewModel(Item item) ItemViewModel
+</code></pre>
+<h2 id="process-flow">Process Flow</h2>
+<p>The next graph explains the process flow of creating an item, from the frontend, we <code>POST</code> a <code>CreateItemDTO</code> as json with a <code>Name</code> and a <code>Description</code> only; because we are creating a new item, we don't know which id it will get. The backend has all the logic to save the item and we get back an <code>ItemViewModel</code> as the response which now has an <code>Id</code> on top of the provided (and maybe sanitized or trimmed, depending on your business logic) <code>Name</code> and <code>Description</code>.</p>
+<ul>
+<li><strong>UI</strong> is responsible to render the user interface and connect buttons and other HTML elements to handlers.</li>
+<li><strong>ItemClient</strong> is a frontend (typescript) class, it is responsible only to manage communications between the <code>Client</code> and <code>Server</code>, it is not concerned with UI tasks.</li>
+<li><strong>ItemController</strong> is our backend entry point, it is responsible for handling requests and responses only.</li>
+<li><strong>ItemService</strong> is our business logic and handles our specific business rules only.</li>
+<li><strong>Repository</strong> is a generic repository, it is responsible to handle data storage and retrieval only. It works with any IEntity, in this specific case it is a Repository&lt;Item&gt; so it does so for Items, but it is reusable with any other entity.</li>
+</ul>
+<pre><code class="lang-mermaid">graph TB
+    UI --&gt;|Click Create| ItemClient
+    ItemClient --&gt;|Update List| UI
+    ItemClient[FrontEnd&lt;br/&gt;ItemClient] --&gt;|CreateItemDTO as JSON&lt;br /&gt;Name and Description| ItemController[Backend&lt;br/&gt;ItemController]
+    ItemController --&gt;|CreateItemDTO&lt;br/&gt;UserId| ItemService
+    ItemService --&gt;|Item| Repository[Repository&lt;Item&gt;]
+    Repository --&gt;|Item| DataContext[DataContext&lt;br/&gt;Entity Framework] 
+    DataContext --&gt;|SQL INSERT ...| Database
+    Database --&gt;|Table row| DataContext
+    DataContext --&gt;|Item| Repository
+    Repository --&gt;|Item| ItemService
+    ItemService --&gt;|ItemViewModel| ItemController
+    ItemController --&gt;|ItemViewModel as JSON&lt;br/&gt;Id, Name and Description| ItemClient
+</code></pre>
+<h2 id="sequence">Sequence</h2>
+<h3 id="frontend---backend">Frontend &lt;-&gt; Backend</h3>
+<p>The below diagram explains the interactions between the frontend and the backend. It shows the different objects being passed during the request and response phases. We will look into each of these classes in more details later.</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+    ItemClient -&gt;&gt; ItemController: POST&lt;br/&gt;/API/MyModule/Item/CreateItem&lt;br/&gt;{ &quot;Name&quot;: &quot;First Item&quot;,&lt;br/&gt;&quot;Description&quot;: &quot;This is the first item&quot; }
+    ItemController -&gt;&gt; ItemService: CreateItem(&lt;br/&gt;CreateItemDTO item = {&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;},&lt;br/&gt;UserId userId = 123)
+    ItemService -&gt;&gt; ItemController: returns&lt;br/&gt;ItemViewModel item = {&lt;br/&gt;Id = 10,&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;}
+    ItemController -&gt;&gt; ItemClient: {&lt;br/&gt;&quot;Id&quot;: 10,&lt;br/&gt;&quot;Name: &quot;First Item&quot;,&lt;br/&gt;&quot;Description&quot;: &quot;This is the first item&quot;&lt;br/&gt;}
+</code></pre>
+<h3 id="our-backend-code">Our backend code</h3>
+<p>The below diagram explains the backend code that is part of the module. We will see each class in more details later, but this sequence diagram explain in a bit more details how the data flows.</p>
+<p>As we saw earlier, to create an item, the minimum information needed is only the <code>Name</code> and <code>Description</code>. The <code>ItemController</code> adds the acting user id and asks the <code>ItemService</code> to create the item.</p>
+<p>Then the <code>Repository</code> adds the information each entity should have like the creation data and others and will save the data to the database (more on this later). It then knows about the <code>Id</code> of the recently created item and can return a fully populated <code>Item</code> back to the <code>ItemService</code>.</p>
+<p>Because we don't need all this information for this view, it converts it into an <code>ItemViewModel</code> that only has the Id, Name and Description. The <code>ItemController</code> then serializes this <code>ItemViewModel</code> as json and returns it to the frontend.</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+    ItemController -&gt;&gt; ItemService: CreateItem(&lt;br/&gt;CreateItemDTO item = {&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;},&lt;br/&gt;UserId userId = 123)
+    ItemService -&gt;&gt; Repository#lt;T#gt;: Create&lt;T&gt;(Item item = {&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;})
+    Repository#lt;T#gt; -&gt;&gt; ItemService: returns Item item = {&lt;br/&gt;Id = 10,&lt;br/&gt;CreatedAt = 2021-01-23 18:05:30,&lt;br/&gt;CreatedByUserId = 123,&lt;br/&gt;UpdatedAt = 2021-01-23 18:05:30,&lt;br/&gt;UpdatedByUserId = 123,&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;}
+    ItemService -&gt;&gt; ItemController: returns&lt;br/&gt;ItemViewModel item = {&lt;br/&gt;Id = 10,&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;}
+</code></pre>
+<h3 id="external-code">External code</h3>
+<p>This module uses <a href="https://www.entityframeworktutorial.net/what-is-entityframework.aspx">Entity Framework</a> for the data layer. This means amongst other things that we define all our data entities from code using attributes and do not need SQL Scripts in the Dnn extension package. In combination with the <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design">Repository Pattern</a> it allows in most cases to also not need complex stored procedures. It also uses IQueryable to combine many filtering/sorting requests and only actually touch the database when needed with a very optimized single query. EF (Entity Framework) supports many different types of databases, this unlinks the module logic from any type of data infrastructure. Right now, this module uses the Dnn database but it can easily be changed to a separate database or even another database type altogether.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This template does not currently support a {databaseQualifier} or a custom {databaseOwner}. It is not eady but it is possible to support this scenario, if anyone needs this feature, a pull request would be welcome.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note that we first call <code>dataContext.Add(new Item ...)</code> and as a second step we call <code>dataContext.SaveChanges()</code>. For operations that write, the database is never touched until the <code>SaveChanges</code> method is called. This allows creating different entities which may have relationships or queuing up many operations to let EF optimize a database query that will be the best for the situation.</p>
+</div>
+<pre><code class="lang-mermaid">sequenceDiagram
+
+    Repository#lt;T#gt; -&gt;&gt; Entity Framework: dataContext.Add(new Item() {&lt;br/&gt;Id = -1,&lt;br/&gt;CreatedAt = 2021-01-23 18:30:00,&lt;br/&gt;CreatedByUserId = 123,&lt;br/&gt;UpdatedAt = 2021-01-23 18:30:00,&lt;br/&gt;UpdatedByUserId = 123,&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;})
+    Repository#lt;T#gt; -&gt;&gt; Entity Framework: dataContext.SaveChanges()
+    Entity Framework -&gt;&gt; SQL Server : INSERT INTO MyModule_Items&lt;br/&gt;(CreatedAt, CreatedByUserId,&lt;br/&gt; UpdatedAt, UpdatedByUserId,&lt;br/&gt; Name, Description)&lt;br/&gt;VALUES (2021-01-23 18:30:00, 123&lt;br/&gt;2021-01-23 18:30:00, 123&lt;br/&gt;&quot;First Item&quot;, &quot;This is the first item&quot;)&lt;br/&gt;GO&lt;br/&gt;SELECT SCOPE_IDENTITY()&lt;br/&gt;GO
+    SQL Server -&gt;&gt; Entity Framework: 10
+    Entity Framework -&gt;&gt; Repository#lt;T#gt;: item = {&lt;br/&gt;Id = 10,&lt;br/&gt;CreatedAt = 2021-01-23 18:30:00,&lt;br/&gt;CreatedByUserId = 123,&lt;br/&gt;UpdatedAt = 2021-01-23 18:30:00,&lt;br/&gt;UpdatedByUserId = 123,&lt;br/&gt;Name = &quot;First Item&quot;,&lt;br/&gt;Description = &quot;This is the first item&quot;}
+</code></pre>
+<h2 id="classes">Classes</h2>
+<p>Now that we have a basic understanding of the overall principles of this pattern, let's examine each class in details. For simplicity only the important code and methods are kept in samples and diagrams below and we will keep discussing only creating a new item.The other scenarios are similar but simply with different request and response data.</p>
+<h3 id="itemcontroller">ItemController</h3>
+<h4 id="responsability">Responsability</h4>
+<p>The itemController is responsible for:</p>
+<ul>
+<li>Handling HTTP requests and responses (success or failures)</li>
+<li>Serve as the entry point for dependency injection (we get an IItemService injected by the <code>Startup</code> class that implements the <code>IDnnStartup</code> interface)</li>
+<li>Provide Dnn context information about the module, the portal and the user for the current request</li>
+</ul>
+<p>As you can see, this class has more than one responsability and inherits from other base classes that are not under our control. One of them, <code>DnnApiController</code> was not built with unit testing in mind. For those reasons, as part of our unit tests, we exclude the <code>Controllers</code> folder.</p>
+<h4 id="inheritance">Inheritance</h4>
+<p>The <code>ItemController</code> inherits from <code>ModuleApiController</code> which provides properties and methods we want to be available in all our controllers. For instance here, we provide an interface for logging and whether or not the user has module edit rights.</p>
+<p>The <code>ModuleApiController</code> then inherits from <code>DnnApiController</code> which provides us Dnn specific information about the module, the portal and the user.</p>
+<p>Finally <code>DnnApiController</code> inherits from Microsoft <code>ApiController</code> which provides all kinds of properties and methods that belong to an WebService API request.</p>
+<h4 id="dependencies">Dependencies</h4>
+<ul>
+<li><strong>IItemService</strong> is an interface, we should in our code alway depend on interfaces and not on implementations, this allows easy refactoring or replacement of implementations and makes software more maintainable and testable. Notice we never do <code>new ItemService()</code>, we get the implementention get injected for us (Dependency Invertion Principle). In other words:
+<ol>
+<li>We don't care how exactly the service creates and item as long as it does create it with the specified parameters and it returns us the correct type. I like to call this the &quot;I don't care how principle&quot;.</li>
+<li>We only depend on classes when they have only public properties and no methods. In some situations those could be <code>struct</code> but there are some gotchas with structs.</li>
+</ol>
+</li>
+</ul>
+<pre><code class="lang-mermaid">classDiagram
+    class ItemController
+        ItemController: -IItemService itemService
+        ItemController: +ItemController(IItemService itemService)
+        ItemController: +CreateItem(CreateItemDTO item) ItemViewModel
+        ItemController: +GetItemsPage(GetItemsPageDTO) ItemsPageViewModel
+        ItemController: +DeleteItem(Int itemId)
+    ItemController ..&gt; IItemService
+    ItemController ..&gt; CreateItemDTO
+    ItemController ..&gt; ItemViewModel
+
+    class CreateItemDTO
+        CreateItemDTO: +string Name
+        CreateItemDTO: +string Description
+
+    class ItemViewModel
+        ItemViewModel: +int Id
+        ItemViewModel: +string Name
+        ItemViewModel: +string Description
+
+    class ModuleApiController
+        ModuleApiController: +ILogger Logger
+        ModuleApiController: +Bool CanEdit
+    ModuleApiController &lt;|-- ItemController
+
+    class DnnApiController
+        DnnApiController: +ModuleInfo ActiveModule
+        DnnApiController: +PortalSettings PortalSettings
+        DnnApiController: +UserInfo UserInfo
+    DnnApiController &lt;|-- ModuleApiController
+
+    class ApiController
+        ApiController: +HttpRequestMessage Request
+        ApiController: +Uri Url
+        ApiController: +Ok(object data) OkResult
+        ApiController: +InternalServerError(Exception ex) InternalServerErrorResult
+    ApiController &lt;|-- DnnApiController
+
+    class ItemService
+        ItemService: -IRepository&lt;Item&gt; itemRepository
+        ItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel
+
+    class IItemService
+        &lt;&lt;interface&gt;&gt; IItemService
+        IItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel
+    IItemService &lt;|-- ItemService
+</code></pre>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Provides Web API access for items.
+/// &lt;/summary&gt;
+public class ItemController : ModuleApiController
+{
+    private readonly IItemService itemService;
+
+    /// &lt;summary&gt;
+    /// Initializes a new instance of the &lt;see cref=&quot;ItemController&quot;/&gt; class.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;itemService&quot;&gt;The items reposioty.&lt;/param&gt;
+    public ItemController(IItemService itemService)
+    {
+        this.itemService = itemService;
+    }
+
+    /// &lt;summary&gt;
+    /// Creates a new item.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;item&quot;&gt;The item to create.&lt;/param&gt;
+    /// &lt;returns&gt;Nothing.&lt;/returns&gt;
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    ...
+    public IHttpActionResult CreateItem(CreateItemDTO item)
+    {
+        try
+        {
+            return this.Ok(this.itemService.CreateItem(item, this.UserInfo.UserID));
+        }
+        catch (ArgumentNullException ex)
+        {
+            this.Logger.Error(ex.Message, ex);
+            return this.BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            string message = &quot;An unexpected error occured while trying to create the item&quot;;
+            this.Logger.Error(message, ex);
+            return this.InternalServerError(new Exception(message));
+            throw;
+        }
+    }
+    ...
+}
+</code></pre>
+<h3 id="itemservice">ItemService</h3>
+<h4 id="responsability-1">Responsability</h4>
+<p>Service classes are core of our business logic in this pattern. In this case it should enclose all the the requirements that relate to an Item. For instance we could do custom validation or sanitization on values, enforce ralations, etc.</p>
+<h4 id="inheritance-1">Inheritance</h4>
+<p>The <code>ItemController</code> inherits from the <code>IItemController</code> interface, again this is to allow using dependency injection where we need it and also help out with unit tests and decoupling classes for easier maintenance.</p>
+<h4 id="dependencies-1">Dependencies</h4>
+<p>Again we only depend on interfaces and data-objects. For instance here we never create an instance of the <code>Repository</code>, we get in injected in the constructor from whowever calls this service.</p>
+<pre><code class="lang-mermaid">classDiagram
+    class CreateItemDTO
+        CreateItemDTO: +string Name
+        CreateItemDTO: +string Description
+
+    class ItemViewModel
+        ItemViewModel: +int Id
+        ItemViewModel: +string Name
+        ItemViewModel: +string Description
+
+    class ItemService
+        ItemService: -IRepository&lt;Item&gt; itemRepository
+        ItemService: +ItemService(IRepository&lt;Item&gt; itemRepository)
+        ItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel
+        ItemService: +GetItemsPage(GetItemsPageDTO request) ItemsPageViewModel
+        ItemService: +DeleteItem(int itemId)
+    ItemService ..&gt; CreateItemDTO
+    ItemService ..&gt; ItemViewModel
+    ItemService ..&gt; IRepository~T~
+    ItemService ..&gt; Item
+
+    class IItemService
+        &lt;&lt;interface&gt;&gt; IItemService
+        IItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel
+        IItemService: +GetItemsPage(GetItemsPageDTO request) ItemsPageViewModel
+        IItemService: +DeleteItem(int itemId)
+    IItemService &lt;|-- ItemService
+
+    class IRepository~T~
+        IRepository~T~: +Create(T entity) T
+
+    class Repository~T~
+        Repository~T~: -DataContext context
+        Repository~T~: +Create(T entity) T
+    IRepository~T~ &lt;|-- Repository~T~
+
+    class Item
+        Item: +string Name
+        Item: +string Description
+    BaseEntity &lt;|-- Item
+
+    class BaseEntity
+        BaseEntity: +int Id
+        BaseEntity: +DateTime CreatedAt
+        BaseEntity: +int CreatedByUserId
+        BaseEntity: +DateTime UpdatedAt
+        BaseEntity: +int UpdatedByUserId
+
+    class IEntity
+        IEntity: +int Id
+        IEntity: +DateTime CreatedAt
+        IEntity: +int CreatedByUserId
+        IEntity: +DateTime UpdatedAt
+        IEntity: +int UpdatedByUserId
+    IEntity &lt;|-- BaseEntity
+</code></pre>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Provides services to manage items.
+/// &lt;/summary&gt;
+public class ItemService : IItemService
+{
+    private IRepository&lt;Item&gt; itemRepository;
+
+    /// &lt;summary&gt;
+    /// Initializes a new instance of the &lt;see cref=&quot;ItemService&quot;/&gt; class.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;itemRepository&quot;&gt;The items repository.&lt;/param&gt;
+    public ItemService(IRepository&lt;Item&gt; itemRepository)
+    {
+        this.itemRepository = itemRepository;
+    }
+
+    /// &lt;inheritdoc/&gt;
+    /// &lt;exception cref=&quot;ArgumentNullException&quot;&gt; is thrown if the item or one of its required properties are missing.&lt;/exception&gt;
+    public ItemViewModel CreateItem(CreateItemDTO item, int userId)
+    {
+        if (item == null)
+        {
+            throw new ArgumentNullException(nameof(item));
+        }
+
+        if (string.IsNullOrWhiteSpace(item.Name))
+        {
+            throw new ArgumentNullException(&quot;The item name is required.&quot;, nameof(item.Name));
+        }
+
+        var newItem = new Item() { Name = item.Name, Description = item.Description };
+        this.itemRepository.Create(newItem, userId);
+
+        return new ItemViewModel(newItem);
+    }
+
+    ...
+}
+</code></pre>
+<h3 id="repositoryt">Repository&lt;T&gt;</h3>
+<h4 id="responsability-2">Responsability</h4>
+<p>This generic repository provides common data oriented methods that can apply to any entity. You can also create specific repositories instead if you need more methods that are specific to a particular entity. It only responsability is to provide data access in a generic fashion. Of cource we could use Entity Framework anywhere but keeping data-access isolate in a single layer decouples the module from any specific data-access technology and will make both testing and maintainability much easier.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Note that the Create Method initializes the audit control fields (CreatedAt, CreatedBy, etc.). This can only work on properties that exists on any entity (defined in <code>BaseEntity</code> or in it's interface <code>IEntity</code>). If you have any other methods that can apply to any entity, this is the place to implement it. (note how we don't have an <code>Update(T entity)</code> method on purpose for teaching purposes).</p>
+</div>
+<h4 id="inheritance-2">Inheritance</h4>
+<p>The <code>Repository&lt;T&gt;</code> only inherits from the <code>IRepository&lt;T&gt;</code> interface, this allows it to be injected where we need it using Dependency Injection and decouples the implementation from the rest of the code.</p>
+<h4 id="dependencies-2">Dependencies</h4>
+<p>The <code>Repository&lt;T&gt;</code> depends only on EntityFramework <code>DataContext</code> (DbContext). Unless you start using EF elsewhere this is the only class that depends on it.</p>
+<h4 id="generics">Generics</h4>
+<p>This class is generic, which means it can work on any entity which inherits the <code>BaseEntity</code> class. So all it's methods work on any entity you would decide to create as long as your entity inherits from <code>BaseEntity</code>.</p>
+<pre><code class="lang-mermaid">classDiagram
+
+    class IRepository~T~
+        IRepository~T~: +Create(T entity, int userId) T
+        IRepository~T~: +GetAll() IEnumerable~T~
+        IRepository~T~: +Get() IQueryable~T~
+        IRepository~T~: +GetById(int id) T
+        IRepository~T~: +GetPage(...) IQueryable~T~
+
+    class Repository~T~
+        Repository~T~: -DataContext context
+        Repository~T~: +Create(T entity, int userId) T
+        Repository~T~: +GetAll() IEnumerable~T~
+        Repository~T~: +Get() IQueryable~T~
+        Repository~T~: +GetById(int id) T
+        Repository~T~: +GetPage(...) IQueryable~T~
+    IRepository~T~ &lt;|-- Repository~T~
+    Repository~T~ --&gt; BaseEntity
+
+    class Item
+        Item: +string Name
+        Item: +string Description
+    BaseEntity &lt;|-- Item
+
+    class BaseEntity
+        BaseEntity: +int Id
+        BaseEntity: +DateTime CreatedAt
+        BaseEntity: +int CreatedByUserId
+        BaseEntity: +DateTime UpdatedAt
+        BaseEntity: +int UpdatedByUserId
+
+    class IEntity
+        &lt;&lt;interface&gt;&gt; IEntity
+        IEntity: +int Id
+        IEntity: +DateTime CreatedAt
+        IEntity: +int CreatedByUserId
+        IEntity: +DateTime UpdatedAt
+        IEntity: +int UpdatedByUserId
+    IEntity &lt;|-- BaseEntity
+
+    class DataContext
+        &lt;&lt;EntityFramework&gt;&gt; DataContext
+        DataContext: +DbSet~T~ entities
+        DataContext: +Create(T entity) T
+        DataContext: +SaveChanges()
+    DataContext &lt;.. Repository~T~
+</code></pre>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Provides common generic data access methods for entities.
+/// &lt;/summary&gt;
+/// &lt;typeparam name=&quot;T&quot;&gt;The type of the entities.&lt;/typeparam&gt;
+public class Repository&lt;T&gt; : IRepository&lt;T&gt;
+    where T : BaseEntity
+{
+    private readonly ModuleDbContext context;
+    private DbSet&lt;T&gt; entities;
+
+    /// &lt;summary&gt;
+    /// Initializes a new instance of the &lt;see cref=&quot;Repository{TEntity}&quot;/&gt; class.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;context&quot;&gt;The module database context.&lt;/param&gt;
+    public Repository(ModuleDbContext context)
+    {
+        this.context = context;
+        this.entities = context.Set&lt;T&gt;();
+    }
+
+    ...
+
+    /// &lt;inheritdoc/&gt;
+    public void Create(T entity, int userId = -1)
+    {
+        if (entity == null)
+        {
+            throw new ArgumentNullException(&quot;entity&quot;);
+        }
+
+        entity.CreatedByUserId = userId;
+        entity.UpdatedByUserId = userId;
+        this.entities.Add(entity);
+        this.context.SaveChanges();
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      ﻿
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div class="toggle-mode pull-right">
+              <div class="icon">
+                <i aria-hidden="true">☀</i>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="switch-style">
+                <span class="slider round"></span>
+              </label>
+              <div class="icon">
+                <i aria-hidden="true">☾</i>
+              </div>
+              <script type="text/javascript" src="../styles/toggle-theme.js"></script>
+            </div>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/mermaid.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>  </body>
+</html>

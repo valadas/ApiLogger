@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Stencil Component Starter </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Stencil Component Starter ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search main-content">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p><img src="https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&amp;colorA=16161d&amp;style=flat-square" alt="Built With Stencil"></p>
+<h1 id="stencil-component-starter">Stencil Component Starter</h1>
+<p>This is a starter project for building a standalone Web Component using Stencil.</p>
+<p>Stencil is also great for building entire apps. For that, use the <a href="https://github.com/ionic-team/stencil-app-starter">stencil-app-starter</a> instead.</p>
+<h1 id="stencil">Stencil</h1>
+<p>Stencil is a compiler for building fast web apps using Web Components.</p>
+<p>Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.</p>
+<p>Stencil components are just Web Components, so they work in any major framework or with no framework at all.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>To start building a new web component using Stencil, clone this repo to a new directory:</p>
+<pre><code class="lang-bash">git clone https://github.com/ionic-team/stencil-component-starter.git my-component
+cd my-component
+git remote rm origin
+</code></pre>
+<p>and run:</p>
+<pre><code class="lang-bash">npm install
+npm start
+</code></pre>
+<p>To build the component for production, run:</p>
+<pre><code class="lang-bash">npm run build
+</code></pre>
+<p>To run the unit tests for the components, run:</p>
+<pre><code class="lang-bash">npm test
+</code></pre>
+<p>Need help? Check out our docs <a href="https://stenciljs.com/docs/my-first-component">here</a>.</p>
+<h2 id="naming-components">Naming Components</h2>
+<p>When creating new component tags, we recommend <em>not</em> using <code>stencil</code> in the component name (ex: <code>&lt;stencil-datepicker&gt;</code>). This is because the generated component has little to nothing to do with Stencil; it's just a web component!</p>
+<p>Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix <code>ion</code>.</p>
+<h2 id="using-this-component">Using this component</h2>
+<h3 id="script-tag">Script tag</h3>
+<ul>
+<li><a href="https://docs.npmjs.com/getting-started/publishing-npm-packages">Publish to NPM</a></li>
+<li>Put a script tag similar to this <code>&lt;script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'&gt;&lt;/script&gt;</code> in the head of your index.html</li>
+<li>Then you can use the element anywhere in your template, JSX, html etc</li>
+</ul>
+<h3 id="node-modules">Node Modules</h3>
+<ul>
+<li>Run <code>npm install my-component --save</code></li>
+<li>Put a script tag similar to this <code>&lt;script src='node_modules/my-component/dist/mycomponent.js'&gt;&lt;/script&gt;</code> in the head of your index.html</li>
+<li>Then you can use the element anywhere in your template, JSX, html etc</li>
+</ul>
+<h3 id="in-a-stencil-starter-app">In a stencil-starter app</h3>
+<ul>
+<li>Run <code>npm install my-component --save</code></li>
+<li>Add an import to the npm packages <code>import my-component;</code></li>
+<li>Then you can use the element anywhere in your template, JSX, html etc</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      ﻿
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div class="toggle-mode pull-right">
+              <div class="icon">
+                <i aria-hidden="true">☀</i>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="switch-style">
+                <span class="slider round"></span>
+              </label>
+              <div class="icon">
+                <i aria-hidden="true">☾</i>
+              </div>
+              <script type="text/javascript" src="../styles/toggle-theme.js"></script>
+            </div>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/mermaid.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>  </body>
+</html>

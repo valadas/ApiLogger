@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2021-09-14_22-06-19" tag="">
+  <assembly name="Eraware.Modules.ApiLogger">
+    <class name="Eraware.Modules.ApiLogger.Controllers.ItemController" coveredlines="22" coverablelines="22" totallines="112" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.Controllers.LocalizationController" coveredlines="0" coverablelines="7" totallines="43" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.Controllers.ModuleApiController" coveredlines="7" coverablelines="8" totallines="48" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.Controllers.ModuleExceptionFilterAttribute" coveredlines="0" coverablelines="45" totallines="81" coveredbranches="0" totalbranches="10" />
+    <class name="Eraware.Modules.ApiLogger.Controllers.ServiceRouteMapper" coveredlines="3" coverablelines="3" totallines="19" coveredbranches="2" totalbranches="2" />
+    <class name="Eraware.Modules.ApiLogger.Controllers.ValidateModelAttribute" coveredlines="0" coverablelines="29" totallines="64" coveredbranches="0" totalbranches="10" />
+    <class name="Eraware.Modules.ApiLogger.Data.Entities.BaseEntity" coveredlines="5" coverablelines="5" totallines="28" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.Data.Entities.Item" coveredlines="2" coverablelines="2" totallines="29" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.Data.Repositories.Repository`1" coveredlines="32" coverablelines="39" totallines="92" coveredbranches="4" totalbranches="6" />
+    <class name="Eraware.Modules.ApiLogger.DTO.CreateItemDTO" coveredlines="2" coverablelines="2" totallines="24" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.DTO.GetItemsPageDTO" coveredlines="4" coverablelines="4" totallines="31" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.DTO.UpdateItemDTO" coveredlines="1" coverablelines="1" totallines="19" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.ExtensionMethods" coveredlines="35" coverablelines="40" totallines="97" coveredbranches="12" totalbranches="14" />
+    <class name="Eraware.Modules.ApiLogger.Services.ItemService" coveredlines="50" coverablelines="58" totallines="114" coveredbranches="12" totalbranches="16" />
+    <class name="Eraware.Modules.ApiLogger.Services.LoggingService" coveredlines="0" coverablelines="31" totallines="71" coveredbranches="0" totalbranches="2" />
+    <class name="Eraware.Modules.ApiLogger.ViewModels.ItemsPageViewModel" coveredlines="4" coverablelines="4" totallines="34" coveredbranches="0" totalbranches="0" />
+    <class name="Eraware.Modules.ApiLogger.ViewModels.ItemViewModel" coveredlines="9" coverablelines="12" totallines="49" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>

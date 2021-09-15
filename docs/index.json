@@ -1,0 +1,1037 @@
+{
+  "api/Eraware.Modules.ApiLogger.Common.Globals.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Common.Globals.html",
+    "title": "Class Globals",
+    "keywords": "Class Globals Global values, constants and methods. Inheritance System.Object Globals Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Common Assembly : Eraware.Modules.ApiLogger.dll Syntax public static class Globals Fields ModulePrefix The module prefix to use to uniquely identify string that may conflict with others, such as sql tables. Declaration public const string ModulePrefix = \"Era_ApiLogger_\" Field Value Type Description System.String"
+  },
+  "api/Eraware.Modules.ApiLogger.Common.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Common.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Common",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Common Classes Globals Global values, constants and methods."
+  },
+  "api/Eraware.Modules.ApiLogger.Controllers.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Controllers.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Controllers",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Controllers Classes ItemController Provides Web API access for items. LocalizationController Provides localization related web services. ModuleApiController Provides common features to all module controller. ServiceRouteMapper Implements the Dnn IServiceRouteMapper to register this module routes."
+  },
+  "api/Eraware.Modules.ApiLogger.Controllers.ItemController.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Controllers.ItemController.html",
+    "title": "Class ItemController",
+    "keywords": "Class ItemController Provides Web API access for items. Inheritance System.Object System.Web.Http.ApiController DotNetNuke.Web.Api.DnnApiController ModuleApiController ItemController Implements System.Web.Http.Controllers.IHttpController System.IDisposable Inherited Members ModuleApiController.UserInfo ModuleApiController.CanEdit DotNetNuke.Web.Api.DnnApiController.PortalSettings DotNetNuke.Web.Api.DnnApiController.ActiveModule System.Web.Http.ApiController.ExecuteAsync(System.Web.Http.Controllers.HttpControllerContext, System.Threading.CancellationToken) System.Web.Http.ApiController.Validate<TEntity>(TEntity) System.Web.Http.ApiController.Validate<TEntity>(TEntity, System.String) System.Web.Http.ApiController.BadRequest() System.Web.Http.ApiController.BadRequest(System.String) System.Web.Http.ApiController.BadRequest(System.Web.Http.ModelBinding.ModelStateDictionary) System.Web.Http.ApiController.Conflict() System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.String) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.Net.Http.Headers.MediaTypeHeaderValue) System.Web.Http.ApiController.Created<T>(System.String, T) System.Web.Http.ApiController.Created<T>(System.Uri, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Object, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>, T) System.Web.Http.ApiController.InternalServerError() System.Web.Http.ApiController.InternalServerError(System.Exception) System.Web.Http.ApiController.Json<T>(T) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings, System.Text.Encoding) System.Web.Http.ApiController.NotFound() System.Web.Http.ApiController.Ok() System.Web.Http.ApiController.Ok<T>(T) System.Web.Http.ApiController.Redirect(System.String) System.Web.Http.ApiController.Redirect(System.Uri) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Object) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>) System.Web.Http.ApiController.ResponseMessage(System.Net.Http.HttpResponseMessage) System.Web.Http.ApiController.StatusCode(System.Net.HttpStatusCode) System.Web.Http.ApiController.Unauthorized(System.Net.Http.Headers.AuthenticationHeaderValue[]) System.Web.Http.ApiController.Unauthorized(System.Collections.Generic.IEnumerable<System.Net.Http.Headers.AuthenticationHeaderValue>) System.Web.Http.ApiController.Initialize(System.Web.Http.Controllers.HttpControllerContext) System.Web.Http.ApiController.Dispose() System.Web.Http.ApiController.Dispose(System.Boolean) System.Web.Http.ApiController.Configuration System.Web.Http.ApiController.ControllerContext System.Web.Http.ApiController.ActionContext System.Web.Http.ApiController.ModelState System.Web.Http.ApiController.Request System.Web.Http.ApiController.RequestContext System.Web.Http.ApiController.Url System.Web.Http.ApiController.User System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Controllers Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ItemController : ModuleApiController, IHttpController, IDisposable Constructors ItemController(IItemService) Initializes a new instance of the ItemController class. Declaration public ItemController(IItemService itemService) Parameters Type Name Description IItemService itemService The items reposioty. Methods CreateItem(CreateItemDTO) Creates a new item. Declaration [HttpPost] [ValidateAntiForgeryToken] [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)] [SwaggerResponse(HttpStatusCode.OK, typeof(ItemViewModel), Description = \"OK\")] [SwaggerResponse(HttpStatusCode.BadRequest, typeof(string), Description = \"Bad Request\")] [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(Exception), Description = \"Error\")] public IHttpActionResult CreateItem(CreateItemDTO item) Parameters Type Name Description CreateItemDTO item The item to create. Returns Type Description System.Web.Http.IHttpActionResult Nothing. DeleteItem(Int32) Deletes an existing item. Declaration [HttpPost] [ValidateAntiForgeryToken] [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)] [SwaggerResponse(HttpStatusCode.OK, typeof(void), Description = \"OK\")] [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(Exception), Description = \"Error\")] public IHttpActionResult DeleteItem(int itemId) Parameters Type Name Description System.Int32 itemId The id of the item to delete. Returns Type Description System.Web.Http.IHttpActionResult Nothing. GetItemsPage(GetItemsPageDTO) Gets a paged and sorted list of items matching a certain query. Declaration [HttpGet] [AllowAnonymous] [SwaggerResponse(HttpStatusCode.OK, typeof(ItemsPageViewModel), Description = \"OK\")] [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(Exception), Description = \"Error\")] public IHttpActionResult GetItemsPage([FromUri] GetItemsPageDTO dto) Parameters Type Name Description GetItemsPageDTO dto The details of the query, GetItemsPageDTO . Returns Type Description System.Web.Http.IHttpActionResult List of pages + paging information. UpdateItem(UpdateItemDTO) Updates an existing item. Declaration [HttpPost] [ValidateAntiForgeryToken] [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)] [SwaggerResponse(HttpStatusCode.OK, null, Description = \"OK\")] [SwaggerResponse(HttpStatusCode.BadRequest, typeof(ArgumentException), Description = \"Malformed request\")] [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(Exception), Description = \"Error\")] public IHttpActionResult UpdateItem(UpdateItemDTO item) Parameters Type Name Description UpdateItemDTO item The new information about the item, UpdateItemDTO . Returns Type Description System.Web.Http.IHttpActionResult Only a status code and no data. UserCanEdit() Checks if a user can edit the current items. Declaration [HttpGet] [AllowAnonymous] [SwaggerResponse(HttpStatusCode.OK, typeof(bool), Description = \"OK\")] [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(Exception), Description = \"Error\")] public IHttpActionResult UserCanEdit() Returns Type Description System.Web.Http.IHttpActionResult A boolean indicating whether the user can edit the current items. Implements System.Web.Http.Controllers.IHttpController System.IDisposable"
+  },
+  "api/Eraware.Modules.ApiLogger.Controllers.LocalizationController.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Controllers.LocalizationController.html",
+    "title": "Class LocalizationController",
+    "keywords": "Class LocalizationController Provides localization related web services. Inheritance System.Object System.Web.Http.ApiController DotNetNuke.Web.Api.DnnApiController ModuleApiController LocalizationController Implements System.Web.Http.Controllers.IHttpController System.IDisposable Inherited Members ModuleApiController.UserInfo ModuleApiController.CanEdit DotNetNuke.Web.Api.DnnApiController.PortalSettings DotNetNuke.Web.Api.DnnApiController.ActiveModule System.Web.Http.ApiController.ExecuteAsync(System.Web.Http.Controllers.HttpControllerContext, System.Threading.CancellationToken) System.Web.Http.ApiController.Validate<TEntity>(TEntity) System.Web.Http.ApiController.Validate<TEntity>(TEntity, System.String) System.Web.Http.ApiController.BadRequest() System.Web.Http.ApiController.BadRequest(System.String) System.Web.Http.ApiController.BadRequest(System.Web.Http.ModelBinding.ModelStateDictionary) System.Web.Http.ApiController.Conflict() System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.String) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.Net.Http.Headers.MediaTypeHeaderValue) System.Web.Http.ApiController.Created<T>(System.String, T) System.Web.Http.ApiController.Created<T>(System.Uri, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Object, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>, T) System.Web.Http.ApiController.InternalServerError() System.Web.Http.ApiController.InternalServerError(System.Exception) System.Web.Http.ApiController.Json<T>(T) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings, System.Text.Encoding) System.Web.Http.ApiController.NotFound() System.Web.Http.ApiController.Ok() System.Web.Http.ApiController.Ok<T>(T) System.Web.Http.ApiController.Redirect(System.String) System.Web.Http.ApiController.Redirect(System.Uri) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Object) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>) System.Web.Http.ApiController.ResponseMessage(System.Net.Http.HttpResponseMessage) System.Web.Http.ApiController.StatusCode(System.Net.HttpStatusCode) System.Web.Http.ApiController.Unauthorized(System.Net.Http.Headers.AuthenticationHeaderValue[]) System.Web.Http.ApiController.Unauthorized(System.Collections.Generic.IEnumerable<System.Net.Http.Headers.AuthenticationHeaderValue>) System.Web.Http.ApiController.Initialize(System.Web.Http.Controllers.HttpControllerContext) System.Web.Http.ApiController.Dispose() System.Web.Http.ApiController.Dispose(System.Boolean) System.Web.Http.ApiController.Configuration System.Web.Http.ApiController.ControllerContext System.Web.Http.ApiController.ActionContext System.Web.Http.ApiController.ModelState System.Web.Http.ApiController.Request System.Web.Http.ApiController.RequestContext System.Web.Http.ApiController.Url System.Web.Http.ApiController.User System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Controllers Assembly : Eraware.Modules.ApiLogger.dll Syntax public class LocalizationController : ModuleApiController, IHttpController, IDisposable Constructors LocalizationController(ILocalizationService) Initializes a new instance of the LocalizationController class. Declaration public LocalizationController(ILocalizationService localizationService) Parameters Type Name Description ILocalizationService localizationService The service to localize resources. Methods GetLocalization() Gets localization keys and values. Declaration [HttpGet] [AllowAnonymous] [SwaggerResponse(HttpStatusCode.OK, typeof(LocalizationViewModel), Description = \"OK\")] public IHttpActionResult GetLocalization() Returns Type Description System.Web.Http.IHttpActionResult LocalizationViewModel . Implements System.Web.Http.Controllers.IHttpController System.IDisposable"
+  },
+  "api/Eraware.Modules.ApiLogger.Controllers.ModuleApiController.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Controllers.ModuleApiController.html",
+    "title": "Class ModuleApiController",
+    "keywords": "Class ModuleApiController Provides common features to all module controller. Inheritance System.Object System.Web.Http.ApiController DotNetNuke.Web.Api.DnnApiController ModuleApiController ItemController LocalizationController Implements System.Web.Http.Controllers.IHttpController System.IDisposable Inherited Members DotNetNuke.Web.Api.DnnApiController.PortalSettings DotNetNuke.Web.Api.DnnApiController.ActiveModule System.Web.Http.ApiController.ExecuteAsync(System.Web.Http.Controllers.HttpControllerContext, System.Threading.CancellationToken) System.Web.Http.ApiController.Validate<TEntity>(TEntity) System.Web.Http.ApiController.Validate<TEntity>(TEntity, System.String) System.Web.Http.ApiController.BadRequest() System.Web.Http.ApiController.BadRequest(System.String) System.Web.Http.ApiController.BadRequest(System.Web.Http.ModelBinding.ModelStateDictionary) System.Web.Http.ApiController.Conflict() System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.String) System.Web.Http.ApiController.Content<T>(System.Net.HttpStatusCode, T, System.Net.Http.Formatting.MediaTypeFormatter, System.Net.Http.Headers.MediaTypeHeaderValue) System.Web.Http.ApiController.Created<T>(System.String, T) System.Web.Http.ApiController.Created<T>(System.Uri, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Object, T) System.Web.Http.ApiController.CreatedAtRoute<T>(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>, T) System.Web.Http.ApiController.InternalServerError() System.Web.Http.ApiController.InternalServerError(System.Exception) System.Web.Http.ApiController.Json<T>(T) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings) System.Web.Http.ApiController.Json<T>(T, Newtonsoft.Json.JsonSerializerSettings, System.Text.Encoding) System.Web.Http.ApiController.NotFound() System.Web.Http.ApiController.Ok() System.Web.Http.ApiController.Ok<T>(T) System.Web.Http.ApiController.Redirect(System.String) System.Web.Http.ApiController.Redirect(System.Uri) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Object) System.Web.Http.ApiController.RedirectToRoute(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>) System.Web.Http.ApiController.ResponseMessage(System.Net.Http.HttpResponseMessage) System.Web.Http.ApiController.StatusCode(System.Net.HttpStatusCode) System.Web.Http.ApiController.Unauthorized(System.Net.Http.Headers.AuthenticationHeaderValue[]) System.Web.Http.ApiController.Unauthorized(System.Collections.Generic.IEnumerable<System.Net.Http.Headers.AuthenticationHeaderValue>) System.Web.Http.ApiController.Initialize(System.Web.Http.Controllers.HttpControllerContext) System.Web.Http.ApiController.Dispose() System.Web.Http.ApiController.Dispose(System.Boolean) System.Web.Http.ApiController.Configuration System.Web.Http.ApiController.ControllerContext System.Web.Http.ApiController.ActionContext System.Web.Http.ApiController.ModelState System.Web.Http.ApiController.Request System.Web.Http.ApiController.RequestContext System.Web.Http.ApiController.Url System.Web.Http.ApiController.User System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Controllers Assembly : Eraware.Modules.ApiLogger.dll Syntax public abstract class ModuleApiController : DnnApiController, IHttpController, IDisposable Properties CanEdit Gets or sets a value indicating whether the user can edit this module. Declaration public virtual bool CanEdit { get; set; } Property Value Type Description System.Boolean UserInfo Gets information about the Dnn user. Declaration public virtual UserInfo UserInfo { get; } Property Value Type Description DotNetNuke.Entities.Users.UserInfo Implements System.Web.Http.Controllers.IHttpController System.IDisposable"
+  },
+  "api/Eraware.Modules.ApiLogger.Controllers.ServiceRouteMapper.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Controllers.ServiceRouteMapper.html",
+    "title": "Class ServiceRouteMapper",
+    "keywords": "Class ServiceRouteMapper Implements the Dnn IServiceRouteMapper to register this module routes. Inheritance System.Object ServiceRouteMapper Implements DotNetNuke.Web.Api.IServiceRouteMapper Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Controllers Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ServiceRouteMapper : IServiceRouteMapper Methods RegisterRoutes(IMapRoute) Declaration public void RegisterRoutes(IMapRoute mapRouteManager) Parameters Type Name Description DotNetNuke.Web.Api.IMapRoute mapRouteManager Implements DotNetNuke.Web.Api.IServiceRouteMapper"
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Entities.BaseEntity.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Entities.BaseEntity.html",
+    "title": "Class BaseEntity",
+    "keywords": "Class BaseEntity Base entity to provide common properties to other entities and allow it's usage in generic repositories. Inheritance System.Object BaseEntity Item Implements IEntity Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Data.Entities Assembly : Eraware.Modules.ApiLogger.dll Syntax public class BaseEntity : IEntity Properties CreatedAt Gets or sets the date and time the entity was first created. Declaration public DateTime CreatedAt { get; set; } Property Value Type Description System.DateTime CreatedByUserId Gets or sets the Dnn user ID that created the entity. Declaration public int CreatedByUserId { get; set; } Property Value Type Description System.Int32 Id Gets or sets the entity id. Declaration public int Id { get; set; } Property Value Type Description System.Int32 UpdatedAt Gets or sets the date and time the entity was last updated. Declaration public DateTime UpdatedAt { get; set; } Property Value Type Description System.DateTime UpdatedByUserId Gets or sets the Dnn user ID that last updated the entity. Declaration public int UpdatedByUserId { get; set; } Property Value Type Description System.Int32 Implements IEntity"
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Entities.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Entities.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Data.Entities",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Data.Entities Classes BaseEntity Base entity to provide common properties to other entities and allow it's usage in generic repositories. Item Represents an item entity. Interfaces IEntity Ensures entities have some common properties."
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Entities.IEntity.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Entities.IEntity.html",
+    "title": "Interface IEntity",
+    "keywords": "Interface IEntity Ensures entities have some common properties. Namespace : Eraware.Modules.ApiLogger.Data.Entities Assembly : Eraware.Modules.ApiLogger.dll Syntax public interface IEntity Properties CreatedAt Gets or sets the date and time the entity was first created. Declaration DateTime CreatedAt { get; set; } Property Value Type Description System.DateTime CreatedByUserId Gets or sets the Dnn user ID that created the entity. Declaration int CreatedByUserId { get; set; } Property Value Type Description System.Int32 Id Gets or sets the entity id. Declaration int Id { get; set; } Property Value Type Description System.Int32 UpdatedAt Gets or sets the date and time the entity was last updated. Declaration DateTime UpdatedAt { get; set; } Property Value Type Description System.DateTime UpdatedByUserId Gets or sets the Dnn user ID that last updated the entity. Declaration int UpdatedByUserId { get; set; } Property Value Type Description System.Int32"
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Entities.Item.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Entities.Item.html",
+    "title": "Class Item",
+    "keywords": "Class Item Represents an item entity. Inheritance System.Object BaseEntity Item Implements IEntity Inherited Members BaseEntity.Id BaseEntity.CreatedAt BaseEntity.UpdatedAt BaseEntity.CreatedByUserId BaseEntity.UpdatedByUserId System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Data.Entities Assembly : Eraware.Modules.ApiLogger.dll Syntax [Table(\"Era_ApiLogger_Items\")] public class Item : BaseEntity, IEntity Properties Description Gets or sets the item description. Declaration [StringLength(250)] public string Description { get; set; } Property Value Type Description System.String Name Gets or sets the item name. Declaration [Required] [StringLength(50)] public string Name { get; set; } Property Value Type Description System.String Implements IEntity"
+  },
+  "api/Eraware.Modules.ApiLogger.Data.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Data",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Data Classes ModuleDbContext The data context for this module."
+  },
+  "api/Eraware.Modules.ApiLogger.Data.ModuleDbContext.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.ModuleDbContext.html",
+    "title": "Class ModuleDbContext",
+    "keywords": "Class ModuleDbContext The data context for this module. Inheritance System.Object System.Data.Entity.DbContext ModuleDbContext Implements System.IDisposable System.Data.Entity.Infrastructure.IObjectContextAdapter Inherited Members System.Data.Entity.DbContext.OnModelCreating(System.Data.Entity.DbModelBuilder) System.Data.Entity.DbContext.Set<TEntity>() System.Data.Entity.DbContext.Set(System.Type) System.Data.Entity.DbContext.SaveChanges() System.Data.Entity.DbContext.SaveChangesAsync() System.Data.Entity.DbContext.SaveChangesAsync(System.Threading.CancellationToken) System.Data.Entity.DbContext.GetValidationErrors() System.Data.Entity.DbContext.ShouldValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry) System.Data.Entity.DbContext.ValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry, System.Collections.Generic.IDictionary<System.Object, System.Object>) System.Data.Entity.DbContext.Entry<TEntity>(TEntity) System.Data.Entity.DbContext.Entry(System.Object) System.Data.Entity.DbContext.Dispose() System.Data.Entity.DbContext.Dispose(System.Boolean) System.Data.Entity.DbContext.Database System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.ObjectContext System.Data.Entity.DbContext.ChangeTracker System.Data.Entity.DbContext.Configuration System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Data Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ModuleDbContext : DbContext, IDisposable, IObjectContextAdapter Constructors ModuleDbContext() Initializes a new instance of the ModuleDbContext class. Declaration public ModuleDbContext() ModuleDbContext(DbConnection) Initializes a new instance of the ModuleDbContext class. Declaration public ModuleDbContext(DbConnection connection) Parameters Type Name Description System.Data.Common.DbConnection connection An existing System.Data.Common.DbConnection . Properties Items Gets or sets the module items. Declaration public DbSet<Item> Items { get; set; } Property Value Type Description System.Data.Entity.DbSet < Item > Implements System.IDisposable System.Data.Entity.Infrastructure.IObjectContextAdapter"
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Repositories.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Repositories.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Data.Repositories",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Data.Repositories Classes Repository<T> Provides common generic data access methods for entities. Interfaces IRepository<T> Provides generic data access features for entities."
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Repositories.IRepository-1.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Repositories.IRepository-1.html",
+    "title": "Interface IRepository<T>",
+    "keywords": "Interface IRepository<T> Provides generic data access features for entities. Namespace : Eraware.Modules.ApiLogger.Data.Repositories Assembly : Eraware.Modules.ApiLogger.dll Syntax public interface IRepository<T> where T : BaseEntity Type Parameters Name Description T The entity type. Methods Create(T, Int32) Creates an entity and saves it to the database. Declaration void Create(T entity, int userId = -1) Parameters Type Name Description T entity The entity to save. System.Int32 userId The creating Dnn user ID. If not provided, will default to -1. Delete(Int32) Deletes an entity in the database. Declaration void Delete(int id) Parameters Type Name Description System.Int32 id The id of the entity. Get() Gets entitties as an IQueryable to allow furter filtering/sorting, etc. Declaration IQueryable<T> Get() Returns Type Description System.Linq.IQueryable <T> An IQueryable of the items. GetAll() Gets all entities. Declaration IEnumerable<T> GetAll() Returns Type Description System.Collections.Generic.IEnumerable <T> All the entities. GetById(Int32) Gets a single entity by id. Declaration T GetById(int id) Parameters Type Name Description System.Int32 id The id of the entity. Returns Type Description T A single entity. Update(T, Int32) Updates an entity and saves the changes to the database. Declaration void Update(T entity, int userId = -1) Parameters Type Name Description T entity The entity to update. System.Int32 userId The updating Dnn user ID. If not provided, will default to -1."
+  },
+  "api/Eraware.Modules.ApiLogger.Data.Repositories.Repository-1.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Data.Repositories.Repository-1.html",
+    "title": "Class Repository<T>",
+    "keywords": "Class Repository<T> Provides common generic data access methods for entities. Inheritance System.Object Repository<T> Implements IRepository <T> Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Data.Repositories Assembly : Eraware.Modules.ApiLogger.dll Syntax public class Repository<T> : IRepository<T> where T : BaseEntity Type Parameters Name Description T The type of the entities. Constructors Repository(ModuleDbContext) Initializes a new instance of the Repository<T> class. Declaration public Repository(ModuleDbContext context) Parameters Type Name Description ModuleDbContext context The module database context. Methods Create(T, Int32) Creates an entity and saves it to the database. Declaration public void Create(T entity, int userId = -1) Parameters Type Name Description T entity The entity to save. System.Int32 userId The creating Dnn user ID. If not provided, will default to -1. Delete(Int32) Deletes an entity in the database. Declaration public void Delete(int id) Parameters Type Name Description System.Int32 id The id of the entity. Get() Gets entitties as an IQueryable to allow furter filtering/sorting, etc. Declaration public IQueryable<T> Get() Returns Type Description System.Linq.IQueryable <T> An IQueryable of the items. GetAll() Gets all entities. Declaration public IEnumerable<T> GetAll() Returns Type Description System.Collections.Generic.IEnumerable <T> All the entities. GetById(Int32) Gets a single entity by id. Declaration public T GetById(int id) Parameters Type Name Description System.Int32 id The id of the entity. Returns Type Description T A single entity. Update(T, Int32) Updates an entity and saves the changes to the database. Declaration public void Update(T entity, int userId = -1) Parameters Type Name Description T entity The entity to update. System.Int32 userId The updating Dnn user ID. If not provided, will default to -1. Implements IRepository<T>"
+  },
+  "api/Eraware.Modules.ApiLogger.DTO.CreateItemDTO.html": {
+    "href": "api/Eraware.Modules.ApiLogger.DTO.CreateItemDTO.html",
+    "title": "Class CreateItemDTO",
+    "keywords": "Class CreateItemDTO Data transfer object to create a new item. Inheritance System.Object CreateItemDTO UpdateItemDTO Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.DTO Assembly : Eraware.Modules.ApiLogger.dll Syntax public class CreateItemDTO Properties Description Gets or sets the description of the item. Declaration public string Description { get; set; } Property Value Type Description System.String Name Gets or sets the name for the item. Declaration [Required(ErrorMessage = \"NameRequired\")] public string Name { get; set; } Property Value Type Description System.String"
+  },
+  "api/Eraware.Modules.ApiLogger.DTO.GetItemsPageDTO.html": {
+    "href": "api/Eraware.Modules.ApiLogger.DTO.GetItemsPageDTO.html",
+    "title": "Class GetItemsPageDTO",
+    "keywords": "Class GetItemsPageDTO The data object to request a paged list of items. Inheritance System.Object GetItemsPageDTO Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.DTO Assembly : Eraware.Modules.ApiLogger.dll Syntax public class GetItemsPageDTO Properties Descending Gets or sets a value indicating whether the items should be ordered descending. Declaration public bool Descending { get; set; } Property Value Type Description System.Boolean Page Gets or sets the page number to get. Declaration public int Page { get; set; } Property Value Type Description System.Int32 PageSize Gets or sets the size of pages. Declaration public int PageSize { get; set; } Property Value Type Description System.Int32 Query Gets or sets the optional search query. Declaration public string Query { get; set; } Property Value Type Description System.String"
+  },
+  "api/Eraware.Modules.ApiLogger.DTO.html": {
+    "href": "api/Eraware.Modules.ApiLogger.DTO.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.DTO",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.DTO Classes CreateItemDTO Data transfer object to create a new item. GetItemsPageDTO The data object to request a paged list of items. UpdateItemDTO Data transfer object used to update an item."
+  },
+  "api/Eraware.Modules.ApiLogger.DTO.UpdateItemDTO.html": {
+    "href": "api/Eraware.Modules.ApiLogger.DTO.UpdateItemDTO.html",
+    "title": "Class UpdateItemDTO",
+    "keywords": "Class UpdateItemDTO Data transfer object used to update an item. Inheritance System.Object CreateItemDTO UpdateItemDTO Inherited Members CreateItemDTO.Name CreateItemDTO.Description System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.DTO Assembly : Eraware.Modules.ApiLogger.dll Syntax public class UpdateItemDTO : CreateItemDTO Properties Id Gets or sets the id of the item to edit. Declaration [Range(1, 2147483647, ErrorMessage = \"IdGreaterThanZero\")] public int Id { get; set; } Property Value Type Description System.Int32"
+  },
+  "api/Eraware.Modules.ApiLogger.html": {
+    "href": "api/Eraware.Modules.ApiLogger.html",
+    "title": "Namespace Eraware.Modules.ApiLogger",
+    "keywords": "Namespace Eraware.Modules.ApiLogger Classes Startup Implements the IDnnStartup interface to run at application start."
+  },
+  "api/Eraware.Modules.ApiLogger.Services.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Services.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.Services",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.Services Classes ItemService Provides services to manage items. LocalizationService Provides strongly typed localization services for this module. Interfaces IItemService Provides services to manage items. ILocalizationService Provides strongly typed localization services for this module."
+  },
+  "api/Eraware.Modules.ApiLogger.Services.IItemService.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Services.IItemService.html",
+    "title": "Interface IItemService",
+    "keywords": "Interface IItemService Provides services to manage items. Namespace : Eraware.Modules.ApiLogger.Services Assembly : Eraware.Modules.ApiLogger.dll Syntax public interface IItemService Methods CreateItem(CreateItemDTO, Int32) Creates a new item. Declaration ItemViewModel CreateItem(CreateItemDTO item, int userId) Parameters Type Name Description CreateItemDTO item The item to create. System.Int32 userId The acting user id. Returns Type Description ItemViewModel Item . DeleteItem(Int32) Deletes an item. Declaration void DeleteItem(int itemId) Parameters Type Name Description System.Int32 itemId The id of the item to delete. GetItemsPage(String, Int32, Int32, Boolean) Gets a list of items paged. Declaration ItemsPageViewModel GetItemsPage(string query, int page = 1, int pageSize = 10, bool descending = false) Parameters Type Name Description System.String query An optional search query. System.Int32 page The page to get. System.Int32 pageSize How many items are including per page. System.Boolean descending If true, sorts the results in descending order, if false in ascending order. Returns Type Description ItemsPageViewModel ItemsPageViewModel . UpdateItem(UpdateItemDTO, Int32) Updates an existing item. Declaration void UpdateItem(UpdateItemDTO item, int userId) Parameters Type Name Description UpdateItemDTO item The item to edit with its new details. System.Int32 userId The id of the acting DNN user."
+  },
+  "api/Eraware.Modules.ApiLogger.Services.ILocalizationService.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Services.ILocalizationService.html",
+    "title": "Interface ILocalizationService",
+    "keywords": "Interface ILocalizationService Provides strongly typed localization services for this module. Namespace : Eraware.Modules.ApiLogger.Services Assembly : Eraware.Modules.ApiLogger.dll Syntax public interface ILocalizationService Properties ViewModel Gets viewmodel that strongly types all resource keys. Declaration LocalizationViewModel ViewModel { get; } Property Value Type Description LocalizationViewModel"
+  },
+  "api/Eraware.Modules.ApiLogger.Services.ItemService.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Services.ItemService.html",
+    "title": "Class ItemService",
+    "keywords": "Class ItemService Provides services to manage items. Inheritance System.Object ItemService Implements IItemService Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Services Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ItemService : IItemService Constructors ItemService(IRepository<Item>) Initializes a new instance of the ItemService class. Declaration public ItemService(IRepository<Item> itemRepository) Parameters Type Name Description IRepository < Item > itemRepository The items repository. Methods CreateItem(CreateItemDTO, Int32) Creates a new item. Declaration public ItemViewModel CreateItem(CreateItemDTO item, int userId) Parameters Type Name Description CreateItemDTO item The item to create. System.Int32 userId The acting user id. Returns Type Description ItemViewModel Item . Exceptions Type Condition System.ArgumentNullException is thrown if the item or one of its required properties are missing. DeleteItem(Int32) Deletes an item. Declaration public void DeleteItem(int itemId) Parameters Type Name Description System.Int32 itemId The id of the item to delete. GetItemsPage(String, Int32, Int32, Boolean) Gets a list of items paged. Declaration public ItemsPageViewModel GetItemsPage(string query, int page = 1, int pageSize = 10, bool descending = false) Parameters Type Name Description System.String query An optional search query. System.Int32 page The page to get. System.Int32 pageSize How many items are including per page. System.Boolean descending If true, sorts the results in descending order, if false in ascending order. Returns Type Description ItemsPageViewModel ItemsPageViewModel . UpdateItem(UpdateItemDTO, Int32) Updates an existing item. Declaration public void UpdateItem(UpdateItemDTO dto, int userId) Parameters Type Name Description UpdateItemDTO dto System.Int32 userId The id of the acting DNN user. Implements IItemService"
+  },
+  "api/Eraware.Modules.ApiLogger.Services.LocalizationService.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Services.LocalizationService.html",
+    "title": "Class LocalizationService",
+    "keywords": "Class LocalizationService Provides strongly typed localization services for this module. Inheritance System.Object LocalizationService Implements ILocalizationService Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.Services Assembly : Eraware.Modules.ApiLogger.dll Syntax public class LocalizationService : ILocalizationService Constructors LocalizationService() Initializes a new instance of the LocalizationService class. Declaration public LocalizationService() Properties ViewModel A viewmodel that strongly types all resource keys. Declaration public LocalizationViewModel ViewModel { get; } Property Value Type Description LocalizationViewModel Implements ILocalizationService"
+  },
+  "api/Eraware.Modules.ApiLogger.Startup.html": {
+    "href": "api/Eraware.Modules.ApiLogger.Startup.html",
+    "title": "Class Startup",
+    "keywords": "Class Startup Implements the IDnnStartup interface to run at application start. Inheritance System.Object Startup Implements DotNetNuke.DependencyInjection.IDnnStartup Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger Assembly : Eraware.Modules.ApiLogger.dll Syntax public class Startup : IDnnStartup Methods ConfigureServices(IServiceCollection) Registers the dependencies for injection. Declaration public void ConfigureServices(IServiceCollection services) Parameters Type Name Description Microsoft.Extensions.DependencyInjection.IServiceCollection services The services collection. Implements DotNetNuke.DependencyInjection.IDnnStartup"
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.html",
+    "title": "Namespace Eraware.Modules.ApiLogger.ViewModels",
+    "keywords": "Namespace Eraware.Modules.ApiLogger.ViewModels Classes ItemsPageViewModel Represents a page of items, Item . ItemViewModel Represents the basic information about an item. LocalizationViewModel A viewmodel that exposes all resource keys in strong types. LocalizationViewModel.ModelValidationInfo Localized strings for the ModelValidation resources. LocalizationViewModel.UIInfo Localized strings for the UI resources."
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.ItemsPageViewModel.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.ItemsPageViewModel.html",
+    "title": "Class ItemsPageViewModel",
+    "keywords": "Class ItemsPageViewModel Represents a page of items, Item . Inheritance System.Object ItemsPageViewModel Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.ViewModels Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ItemsPageViewModel Properties Items Gets or sets a list of items for this page. Declaration public List<ItemViewModel> Items { get; set; } Property Value Type Description System.Collections.Generic.List < ItemViewModel > Page Gets or sets the current page number. Declaration public int Page { get; set; } Property Value Type Description System.Int32 PageCount Gets or sets the total amount of pages available. Declaration public int PageCount { get; set; } Property Value Type Description System.Int32 ResultCount Gets or sets the total amount of results found. Declaration public int ResultCount { get; set; } Property Value Type Description System.Int32"
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.ItemViewModel.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.ItemViewModel.html",
+    "title": "Class ItemViewModel",
+    "keywords": "Class ItemViewModel Represents the basic information about an item. Inheritance System.Object ItemViewModel Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.ViewModels Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ItemViewModel Constructors ItemViewModel() Initializes a new instance of the ItemViewModel class. Declaration public ItemViewModel() ItemViewModel(Item) Initializes a new instance of the ItemViewModel class. Declaration public ItemViewModel(Item item) Parameters Type Name Description Item item An Item entity. Properties Description Gets or sets the item description. Declaration public string Description { get; set; } Property Value Type Description System.String Id Gets or sets the id of the item. Declaration public int Id { get; set; } Property Value Type Description System.Int32 Name Gets or sets the name of the item. Declaration [Required] public string Name { get; set; } Property Value Type Description System.String"
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.html",
+    "title": "Class LocalizationViewModel",
+    "keywords": "Class LocalizationViewModel A viewmodel that exposes all resource keys in strong types. Inheritance System.Object LocalizationViewModel Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.ViewModels Assembly : Eraware.Modules.ApiLogger.dll Syntax public class LocalizationViewModel Properties ModelValidation Localized strings present the ModelValidation resources. Declaration public LocalizationViewModel.ModelValidationInfo ModelValidation { get; set; } Property Value Type Description LocalizationViewModel.ModelValidationInfo UI Localized strings present the UI resources. Declaration public LocalizationViewModel.UIInfo UI { get; set; } Property Value Type Description LocalizationViewModel.UIInfo"
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.ModelValidationInfo.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.ModelValidationInfo.html",
+    "title": "Class LocalizationViewModel.ModelValidationInfo",
+    "keywords": "Class LocalizationViewModel.ModelValidationInfo Localized strings for the ModelValidation resources. Inheritance System.Object LocalizationViewModel.ModelValidationInfo Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.ViewModels Assembly : Eraware.Modules.ApiLogger.dll Syntax public class ModelValidationInfo Properties IdGreaterThanZero Gets or sets the IdGreaterThanZero localized text. Declaration public string IdGreaterThanZero { get; set; } Property Value Type Description System.String Examples The Id must be an integer bigger than 0 NameRequired Gets or sets the NameRequired localized text. Declaration public string NameRequired { get; set; } Property Value Type Description System.String Examples The name is required"
+  },
+  "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.UIInfo.html": {
+    "href": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.UIInfo.html",
+    "title": "Class LocalizationViewModel.UIInfo",
+    "keywords": "Class LocalizationViewModel.UIInfo Localized strings for the UI resources. Inheritance System.Object LocalizationViewModel.UIInfo Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Eraware.Modules.ApiLogger.ViewModels Assembly : Eraware.Modules.ApiLogger.dll Syntax public class UIInfo Properties AddItem Gets or sets the AddItem localized text. Declaration public string AddItem { get; set; } Property Value Type Description System.String Examples Add Item Cancel Gets or sets the Cancel localized text. Declaration public string Cancel { get; set; } Property Value Type Description System.String Examples Cancel Create Gets or sets the Create localized text. Declaration public string Create { get; set; } Property Value Type Description System.String Examples Create Delete Gets or sets the Delete localized text. Declaration public string Delete { get; set; } Property Value Type Description System.String Examples Delete DeleteItemConfirm Gets or sets the DeleteItemConfirm localized text. Declaration public string DeleteItemConfirm { get; set; } Property Value Type Description System.String Examples Are you sure you want to delete this item? Description Gets or sets the Description localized text. Declaration public string Description { get; set; } Property Value Type Description System.String Examples Description Edit Gets or sets the Edit localized text. Declaration public string Edit { get; set; } Property Value Type Description System.String Examples Edit LoadMore Gets or sets the LoadMore localized text. Declaration public string LoadMore { get; set; } Property Value Type Description System.String Examples Load More Name Gets or sets the Name localized text. Declaration public string Name { get; set; } Property Value Type Description System.String Examples Name No Gets or sets the No localized text. Declaration public string No { get; set; } Property Value Type Description System.String Examples No Save Gets or sets the Save localized text. Declaration public string Save { get; set; } Property Value Type Description System.String Examples Save SearchPlaceholder Gets or sets the SearchPlaceholder localized text. Declaration public string SearchPlaceholder { get; set; } Property Value Type Description System.String Examples Search ShownItems Gets or sets the ShownItems localized text. Declaration public string ShownItems { get; set; } Property Value Type Description System.String Examples Showing {0} of {1} items. Yes Gets or sets the Yes localized text. Declaration public string Yes { get; set; } Property Value Type Description System.String Examples Yes"
+  },
+  "api/index.html": {
+    "href": "api/index.html",
+    "title": "Backend API documentation",
+    "keywords": "Backend API documentation This section documents the APIs available in the backend (c#) code. Please expande the namespaces to navigate through the APIs."
+  },
+  "articles/git.html": {
+    "href": "articles/git.html",
+    "title": "Git support",
+    "keywords": "Git support To gain the full benefits of this module template it is recommended to set it up as a git repository and to push it to Github . Note Git and Github are 2 different things. Git is a version control system that works locally and supports having remotes. Github is one of these possible remotes. Create a git repository Tip You can do the next steps using any git client (even the command line), however in this tutorial we'll be using Github Extensions for VisualStudio . If you did not select this option when you installed VisualStudio you can download this extension at the link above. Commit your module to Github by clicking the Add to Source Control button in the lower right corner of VisualStudio and complete the wizard that opens. Note You may be asked to login if it's the first time you are using Github integration in Visual Studio. If you are asked to login, it is recommended to create a Personal Access Token instead of using your login/password. Also the Github automations support both private and public repositories. Automated releases In a few minutes if you navigate to your repository on Github, you will notice there is a draft release for v0.1.0. It has no release notes yet but it does have the fully packaged module ready for production install. Tip This is a draft an the public won't see it as an available release yet. Since this is probably not ready for production, you can delete the release and the tag if you don't want to keep it (and reserve the v0.1.0 version from future use). If you do want to keep it, you can edit it and publish it. Each push to the master branch will trigger a draf release that is non-beta, this is how we will do releases in the future. Automatic Versioning The template uses GitVersion and the GitFlow branching strategy in order to manage versions and releases. This means: The master branch contains the code from the latest published production release. Only merge commits comming from a release or hotfix branch should be merged to it. Each push to this branch will produce a draft release. The develop branch contains the latest development code (alpha). Merging or pushing to this branch does not produce any release but you can get the (alpha) build from the branch build status badge. Also any pull request to it builds the project and you also have the PR build artifact available in the action status. release branches are used to prepare the next release, when a release/1.0.0 branch is created, a few minutes after, you will have an unpublished release called v1.0.0-beta-1 . For each further merge or push to the release/1.0.0 branch, you will get the same version but a new beta sequential member like v1.0.0-beta-2 . When the release is ready for production, you can merge the release/1.0.0 into the master branch (usually through a pull request) and it will produce a draft release called v1.0.0 (no longer beta). Tip By default when you initially pushed the first commit to github earlier, it created only the master branch. You should on github create a develop branch from it and then pull that branch before any further development. Automatic Release Notes Release notes for each of those versions are automatically generated from Pull Request (PR) titles for which the milestone matches the released version. The notes are also grouped by label. Mergeable Mergeable is a Github extension that enforces some rules over pull requests and/or issues. It is pre-configured in this template to enforce that every pull request has a title, description, label and milestone. Dependabot Dependabot is also pre-setup, it will look at the project dependencies and create automated pull requests when it detects a new version of those dependencies. Tip Although Dependabot is very useful in warning you about new versions of dependencies and automatically running a built, you should inspect each of those PRs to make sure you do want to accept them. For instance, this template uses Entity Framework and this dll is distributed with the module package. However it's version needs to be declared in the dnn manifest and dependabot is not aware of this. Also, Dnn has some dependencies like Newtonsoft.Json and if you used a different version than Dnn, you may run into some issues which will be hard to catch by unit tests. Trying it out Let's make sure we have a develop branch on github and we pull it locally. To do this, we will create the develop branch on github and set it as our default branch. At the same time while we are there, we can setup some branch protection rules to prevent merging PRs that don't build or fail tests, etc. Then we will locally fetch and then pull that branch. Now let's create a new local branch to make a small change that we will then submit as a pull request for. We will push that branch and create a pull request for it on github. Creating a pull request will fire up a build and fire up a set of tests too to validate the change does not break anything. When the build suceeds, we will merge that pull request. Now we will create a 1.0.0-beta release simply by creating a release/1.0.0 branch (it will take a few minutes to create the release). Note that this time because we had a PR with a milestone, we get automatic release notes generated for us. Now let's assume this beta got properly tested and we want to produce the final the final 1.0.0 release, we simply need to merge the release/1.0.0 branch into our master branch, we will do so using a pull request and we'll do a merge commit . Documentation This template has both support for writing your own documentation and also automating documentation from code comments automatically to keep documentation in always in sync with the code. Github allows having a free documentation website as part of every repository. You may not have realized it yet but it's already done as part of our initial commit. We simply have to return to github repository settings and set the source for that site. The code can be a folder on any branch or a special branch. Here we will select the docs folder on the branch of our choice. Tip Selecting the master branch will mean that your published documentation will always be in sync with the latest published official release (non-beta). If you want your documentation to be in sync with the latest changes, you can select the develop branch or if you have long standing betas and you want the documentation to reflect it, you can select a release/x.x.x branch. Warning Do not select a theme in the settings, this is for Jekyll sites which we are not using. Also, it may take Github a few minutes to publish your site. What you are seeing in Visual Studio now is only some snippets to get you started until the full documentation is published, now that this is done, you can view the full documentation at https://{owner}.github.io/{repository}"
+  },
+  "articles/intro.html": {
+    "href": "articles/intro.html",
+    "title": "Getting Started",
+    "keywords": "Getting Started Welcome to you new module template! First build Package your module Build tasks are placed in the launch profiles menu in Visual Studio, click the debug button with the Package profile selected. This will fire up a console application to run the module build and will create a Dnn extension package in the website under the install\\modules folder. Don't worry about opening up that folder, see next step. Note The build script is simply a console application in the build project, it uses Nuke to help with utilities. You can later customize that process simply by editing the Build.cs file. Install your module Now we need to install the module in Dnn to see it in action. Simply log in as a SuperUser (host) and navigate to Extensions / Available Extensions to install your new module. Then create a test page and put the module on it. Note The module javascript fires up on page load, so after dropping your module you need to refresh the page to see it work. Congratulations, you have a working module! Now let's make it a git repository."
+  },
+  "articles/project-architecture.html": {
+    "href": "articles/project-architecture.html",
+    "title": "Project Architecture",
+    "keywords": "Project Architecture SPA - Web API This type of Dnn module is commonly knows as a SPA (Single Page Application) module. This common naming does not really reflect correctly the module type. In fact it uses the Dnn HtmlModule pipeline. This means the server is not responsible at all for rendering the frontend, it simply serves static html/css/js files to the frontend. Note One small exception to this statement is that Dnn will replace some known tokens in your html view to inject Dnn specific things like the ModuleId for instance. In order to interact with the server (backend), the frontend will use a REST API to call a backend controller. It can GET some information or POST to perform some action. For security and performance reasons, we may want to have more or less information passed either when we GET or when we POST data. The graph below explains the various objects used to hold this data. An entity represents one database table row. IEntity is an interface that describes properties that any entity will have. It exists so we can later have Generic implementations of classes. BaseEntity is a base class. Since interfaces cannot have code, the BaseEntity is used to include code that should run for every entity no matter it's type. For instance when we create a new entity, we inject automatically the CreatedAt and UpdatedAt to the current date and time, we also initialize the CreatedByUserId and UpdatedByUserId to -1 by default. Item this is one specific entity, in our simple case here an Item simply has a Name and Description Request When we request the system to create an item, we do not have to pass a full Item as the BaseEntity already handles that for use for any type of entity. In some cases like for the CreatedByUserId, for security reasons, we don't want to user to tell use his userId from the frontend, we need Dnn to tell us for sure who is logged in. To handle that scenario, the minimum amount of data to create a new Item is just the Name and Desciption so we use a Data Transfer Object (DTO) specific for that operation called CreateItemDTO . It's name matches the operation verb, note here we have no Id, because we are creating a new one. If you implement an update method, you may want to create an UpdateItemDTO that will have an Id too. Response Similarly, we may not want to send all the information about an entity back to the frontend. Let's suppose we have a public list of Items, we probably don't want to expose the CreatedByUserId for security reasons and the CreatedAt because we may not display it. For this scenario we have a ItemViewModel that only has the Id , Name and Description properties. Note Notice we have a constructor here that takes an Item to quickly create a new ItemViewModel from an Item classDiagram class CreateItemDTO CreateItemDTO : +String Name CreateItemDTO : +String Description class IEntity IEntity : +Int Id IEntity : +DateTime CreatedAt IEntity : +Int CreatedByUserId IEntity : +DateTime UpdatedAt IEntity : +Int UpdatedByUserId class BaseEntity BaseEntity : +Int Id BaseEntity : +DateTime CreatedAt BaseEntity : +Int CreatedByUserId BaseEntity : +DateTime UpdatedAt BaseEntity : +Int UpdatedByUserId class Item Item : String Name Item : String Description BaseEntity <|-- Item IEntity <|-- BaseEntity class ItemViewModel ItemViewModel : +Int Id ItemViewModel : +String Name ItemViewModel : +String Description ItemViewModel : +ItemViewModel(Item item) ItemViewModel Process Flow The next graph explains the process flow of creating an item, from the frontend, we POST a CreateItemDTO as json with a Name and a Description only; because we are creating a new item, we don't know which id it will get. The backend has all the logic to save the item and we get back an ItemViewModel as the response which now has an Id on top of the provided (and maybe sanitized or trimmed, depending on your business logic) Name and Description . UI is responsible to render the user interface and connect buttons and other HTML elements to handlers. ItemClient is a frontend (typescript) class, it is responsible only to manage communications between the Client and Server , it is not concerned with UI tasks. ItemController is our backend entry point, it is responsible for handling requests and responses only. ItemService is our business logic and handles our specific business rules only. Repository is a generic repository, it is responsible to handle data storage and retrieval only. It works with any IEntity, in this specific case it is a Repository<Item> so it does so for Items, but it is reusable with any other entity. graph TB UI -->|Click Create| ItemClient ItemClient -->|Update List| UI ItemClient[FrontEnd<br/>ItemClient] -->|CreateItemDTO as JSON<br />Name and Description| ItemController[Backend<br/>ItemController] ItemController -->|CreateItemDTO<br/>UserId| ItemService ItemService -->|Item| Repository[Repository<Item>] Repository -->|Item| DataContext[DataContext<br/>Entity Framework] DataContext -->|SQL INSERT ...| Database Database -->|Table row| DataContext DataContext -->|Item| Repository Repository -->|Item| ItemService ItemService -->|ItemViewModel| ItemController ItemController -->|ItemViewModel as JSON<br/>Id, Name and Description| ItemClient Sequence Frontend <-> Backend The below diagram explains the interactions between the frontend and the backend. It shows the different objects being passed during the request and response phases. We will look into each of these classes in more details later. sequenceDiagram ItemClient ->> ItemController: POST<br/>/API/MyModule/Item/CreateItem<br/>{ \"Name\": \"First Item\",<br/>\"Description\": \"This is the first item\" } ItemController ->> ItemService: CreateItem(<br/>CreateItemDTO item = {<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"},<br/>UserId userId = 123) ItemService ->> ItemController: returns<br/>ItemViewModel item = {<br/>Id = 10,<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"} ItemController ->> ItemClient: {<br/>\"Id\": 10,<br/>\"Name: \"First Item\",<br/>\"Description\": \"This is the first item\"<br/>} Our backend code The below diagram explains the backend code that is part of the module. We will see each class in more details later, but this sequence diagram explain in a bit more details how the data flows. As we saw earlier, to create an item, the minimum information needed is only the Name and Description . The ItemController adds the acting user id and asks the ItemService to create the item. Then the Repository adds the information each entity should have like the creation data and others and will save the data to the database (more on this later). It then knows about the Id of the recently created item and can return a fully populated Item back to the ItemService . Because we don't need all this information for this view, it converts it into an ItemViewModel that only has the Id, Name and Description. The ItemController then serializes this ItemViewModel as json and returns it to the frontend. sequenceDiagram ItemController ->> ItemService: CreateItem(<br/>CreateItemDTO item = {<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"},<br/>UserId userId = 123) ItemService ->> Repository#lt;T#gt;: Create<T>(Item item = {<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"}) Repository#lt;T#gt; ->> ItemService: returns Item item = {<br/>Id = 10,<br/>CreatedAt = 2021-01-23 18:05:30,<br/>CreatedByUserId = 123,<br/>UpdatedAt = 2021-01-23 18:05:30,<br/>UpdatedByUserId = 123,<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"} ItemService ->> ItemController: returns<br/>ItemViewModel item = {<br/>Id = 10,<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"} External code This module uses Entity Framework for the data layer. This means amongst other things that we define all our data entities from code using attributes and do not need SQL Scripts in the Dnn extension package. In combination with the Repository Pattern it allows in most cases to also not need complex stored procedures. It also uses IQueryable to combine many filtering/sorting requests and only actually touch the database when needed with a very optimized single query. EF (Entity Framework) supports many different types of databases, this unlinks the module logic from any type of data infrastructure. Right now, this module uses the Dnn database but it can easily be changed to a separate database or even another database type altogether. Warning This template does not currently support a {databaseQualifier} or a custom {databaseOwner}. It is not eady but it is possible to support this scenario, if anyone needs this feature, a pull request would be welcome. Note Note that we first call dataContext.Add(new Item ...) and as a second step we call dataContext.SaveChanges() . For operations that write, the database is never touched until the SaveChanges method is called. This allows creating different entities which may have relationships or queuing up many operations to let EF optimize a database query that will be the best for the situation. sequenceDiagram Repository#lt;T#gt; ->> Entity Framework: dataContext.Add(new Item() {<br/>Id = -1,<br/>CreatedAt = 2021-01-23 18:30:00,<br/>CreatedByUserId = 123,<br/>UpdatedAt = 2021-01-23 18:30:00,<br/>UpdatedByUserId = 123,<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"}) Repository#lt;T#gt; ->> Entity Framework: dataContext.SaveChanges() Entity Framework ->> SQL Server : INSERT INTO MyModule_Items<br/>(CreatedAt, CreatedByUserId,<br/> UpdatedAt, UpdatedByUserId,<br/> Name, Description)<br/>VALUES (2021-01-23 18:30:00, 123<br/>2021-01-23 18:30:00, 123<br/>\"First Item\", \"This is the first item\")<br/>GO<br/>SELECT SCOPE_IDENTITY()<br/>GO SQL Server ->> Entity Framework: 10 Entity Framework ->> Repository#lt;T#gt;: item = {<br/>Id = 10,<br/>CreatedAt = 2021-01-23 18:30:00,<br/>CreatedByUserId = 123,<br/>UpdatedAt = 2021-01-23 18:30:00,<br/>UpdatedByUserId = 123,<br/>Name = \"First Item\",<br/>Description = \"This is the first item\"} Classes Now that we have a basic understanding of the overall principles of this pattern, let's examine each class in details. For simplicity only the important code and methods are kept in samples and diagrams below and we will keep discussing only creating a new item.The other scenarios are similar but simply with different request and response data. ItemController Responsability The itemController is responsible for: Handling HTTP requests and responses (success or failures) Serve as the entry point for dependency injection (we get an IItemService injected by the Startup class that implements the IDnnStartup interface) Provide Dnn context information about the module, the portal and the user for the current request As you can see, this class has more than one responsability and inherits from other base classes that are not under our control. One of them, DnnApiController was not built with unit testing in mind. For those reasons, as part of our unit tests, we exclude the Controllers folder. Inheritance The ItemController inherits from ModuleApiController which provides properties and methods we want to be available in all our controllers. For instance here, we provide an interface for logging and whether or not the user has module edit rights. The ModuleApiController then inherits from DnnApiController which provides us Dnn specific information about the module, the portal and the user. Finally DnnApiController inherits from Microsoft ApiController which provides all kinds of properties and methods that belong to an WebService API request. Dependencies IItemService is an interface, we should in our code alway depend on interfaces and not on implementations, this allows easy refactoring or replacement of implementations and makes software more maintainable and testable. Notice we never do new ItemService() , we get the implementention get injected for us (Dependency Invertion Principle). In other words: We don't care how exactly the service creates and item as long as it does create it with the specified parameters and it returns us the correct type. I like to call this the \"I don't care how principle\". We only depend on classes when they have only public properties and no methods. In some situations those could be struct but there are some gotchas with structs. classDiagram class ItemController ItemController: -IItemService itemService ItemController: +ItemController(IItemService itemService) ItemController: +CreateItem(CreateItemDTO item) ItemViewModel ItemController: +GetItemsPage(GetItemsPageDTO) ItemsPageViewModel ItemController: +DeleteItem(Int itemId) ItemController ..> IItemService ItemController ..> CreateItemDTO ItemController ..> ItemViewModel class CreateItemDTO CreateItemDTO: +string Name CreateItemDTO: +string Description class ItemViewModel ItemViewModel: +int Id ItemViewModel: +string Name ItemViewModel: +string Description class ModuleApiController ModuleApiController: +ILogger Logger ModuleApiController: +Bool CanEdit ModuleApiController <|-- ItemController class DnnApiController DnnApiController: +ModuleInfo ActiveModule DnnApiController: +PortalSettings PortalSettings DnnApiController: +UserInfo UserInfo DnnApiController <|-- ModuleApiController class ApiController ApiController: +HttpRequestMessage Request ApiController: +Uri Url ApiController: +Ok(object data) OkResult ApiController: +InternalServerError(Exception ex) InternalServerErrorResult ApiController <|-- DnnApiController class ItemService ItemService: -IRepository<Item> itemRepository ItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel class IItemService <<interface>> IItemService IItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel IItemService <|-- ItemService /// <summary> /// Provides Web API access for items. /// </summary> public class ItemController : ModuleApiController { private readonly IItemService itemService; /// <summary> /// Initializes a new instance of the <see cref=\"ItemController\"/> class. /// </summary> /// <param name=\"itemService\">The items reposioty.</param> public ItemController(IItemService itemService) { this.itemService = itemService; } /// <summary> /// Creates a new item. /// </summary> /// <param name=\"item\">The item to create.</param> /// <returns>Nothing.</returns> [HttpPost] [ValidateAntiForgeryToken] ... public IHttpActionResult CreateItem(CreateItemDTO item) { try { return this.Ok(this.itemService.CreateItem(item, this.UserInfo.UserID)); } catch (ArgumentNullException ex) { this.Logger.Error(ex.Message, ex); return this.BadRequest(ex.Message); } catch (Exception ex) { string message = \"An unexpected error occured while trying to create the item\"; this.Logger.Error(message, ex); return this.InternalServerError(new Exception(message)); throw; } } ... } ItemService Responsability Service classes are core of our business logic in this pattern. In this case it should enclose all the the requirements that relate to an Item. For instance we could do custom validation or sanitization on values, enforce ralations, etc. Inheritance The ItemController inherits from the IItemController interface, again this is to allow using dependency injection where we need it and also help out with unit tests and decoupling classes for easier maintenance. Dependencies Again we only depend on interfaces and data-objects. For instance here we never create an instance of the Repository , we get in injected in the constructor from whowever calls this service. classDiagram class CreateItemDTO CreateItemDTO: +string Name CreateItemDTO: +string Description class ItemViewModel ItemViewModel: +int Id ItemViewModel: +string Name ItemViewModel: +string Description class ItemService ItemService: -IRepository<Item> itemRepository ItemService: +ItemService(IRepository<Item> itemRepository) ItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel ItemService: +GetItemsPage(GetItemsPageDTO request) ItemsPageViewModel ItemService: +DeleteItem(int itemId) ItemService ..> CreateItemDTO ItemService ..> ItemViewModel ItemService ..> IRepository~T~ ItemService ..> Item class IItemService <<interface>> IItemService IItemService: +CreateItem(CreateItemDTO item, int userId) ItemViewModel IItemService: +GetItemsPage(GetItemsPageDTO request) ItemsPageViewModel IItemService: +DeleteItem(int itemId) IItemService <|-- ItemService class IRepository~T~ IRepository~T~: +Create(T entity) T class Repository~T~ Repository~T~: -DataContext context Repository~T~: +Create(T entity) T IRepository~T~ <|-- Repository~T~ class Item Item: +string Name Item: +string Description BaseEntity <|-- Item class BaseEntity BaseEntity: +int Id BaseEntity: +DateTime CreatedAt BaseEntity: +int CreatedByUserId BaseEntity: +DateTime UpdatedAt BaseEntity: +int UpdatedByUserId class IEntity IEntity: +int Id IEntity: +DateTime CreatedAt IEntity: +int CreatedByUserId IEntity: +DateTime UpdatedAt IEntity: +int UpdatedByUserId IEntity <|-- BaseEntity /// <summary> /// Provides services to manage items. /// </summary> public class ItemService : IItemService { private IRepository<Item> itemRepository; /// <summary> /// Initializes a new instance of the <see cref=\"ItemService\"/> class. /// </summary> /// <param name=\"itemRepository\">The items repository.</param> public ItemService(IRepository<Item> itemRepository) { this.itemRepository = itemRepository; } /// <inheritdoc/> /// <exception cref=\"ArgumentNullException\"> is thrown if the item or one of its required properties are missing.</exception> public ItemViewModel CreateItem(CreateItemDTO item, int userId) { if (item == null) { throw new ArgumentNullException(nameof(item)); } if (string.IsNullOrWhiteSpace(item.Name)) { throw new ArgumentNullException(\"The item name is required.\", nameof(item.Name)); } var newItem = new Item() { Name = item.Name, Description = item.Description }; this.itemRepository.Create(newItem, userId); return new ItemViewModel(newItem); } ... } Repository<T> Responsability This generic repository provides common data oriented methods that can apply to any entity. You can also create specific repositories instead if you need more methods that are specific to a particular entity. It only responsability is to provide data access in a generic fashion. Of cource we could use Entity Framework anywhere but keeping data-access isolate in a single layer decouples the module from any specific data-access technology and will make both testing and maintainability much easier. Tip Note that the Create Method initializes the audit control fields (CreatedAt, CreatedBy, etc.). This can only work on properties that exists on any entity (defined in BaseEntity or in it's interface IEntity ). If you have any other methods that can apply to any entity, this is the place to implement it. (note how we don't have an Update(T entity) method on purpose for teaching purposes). Inheritance The Repository<T> only inherits from the IRepository<T> interface, this allows it to be injected where we need it using Dependency Injection and decouples the implementation from the rest of the code. Dependencies The Repository<T> depends only on EntityFramework DataContext (DbContext). Unless you start using EF elsewhere this is the only class that depends on it. Generics This class is generic, which means it can work on any entity which inherits the BaseEntity class. So all it's methods work on any entity you would decide to create as long as your entity inherits from BaseEntity . classDiagram class IRepository~T~ IRepository~T~: +Create(T entity, int userId) T IRepository~T~: +GetAll() IEnumerable~T~ IRepository~T~: +Get() IQueryable~T~ IRepository~T~: +GetById(int id) T IRepository~T~: +GetPage(...) IQueryable~T~ class Repository~T~ Repository~T~: -DataContext context Repository~T~: +Create(T entity, int userId) T Repository~T~: +GetAll() IEnumerable~T~ Repository~T~: +Get() IQueryable~T~ Repository~T~: +GetById(int id) T Repository~T~: +GetPage(...) IQueryable~T~ IRepository~T~ <|-- Repository~T~ Repository~T~ --> BaseEntity class Item Item: +string Name Item: +string Description BaseEntity <|-- Item class BaseEntity BaseEntity: +int Id BaseEntity: +DateTime CreatedAt BaseEntity: +int CreatedByUserId BaseEntity: +DateTime UpdatedAt BaseEntity: +int UpdatedByUserId class IEntity <<interface>> IEntity IEntity: +int Id IEntity: +DateTime CreatedAt IEntity: +int CreatedByUserId IEntity: +DateTime UpdatedAt IEntity: +int UpdatedByUserId IEntity <|-- BaseEntity class DataContext <<EntityFramework>> DataContext DataContext: +DbSet~T~ entities DataContext: +Create(T entity) T DataContext: +SaveChanges() DataContext <.. Repository~T~ /// <summary> /// Provides common generic data access methods for entities. /// </summary> /// <typeparam name=\"T\">The type of the entities.</typeparam> public class Repository<T> : IRepository<T> where T : BaseEntity { private readonly ModuleDbContext context; private DbSet<T> entities; /// <summary> /// Initializes a new instance of the <see cref=\"Repository{TEntity}\"/> class. /// </summary> /// <param name=\"context\">The module database context.</param> public Repository(ModuleDbContext context) { this.context = context; this.entities = context.Set<T>(); } ... /// <inheritdoc/> public void Create(T entity, int userId = -1) { if (entity == null) { throw new ArgumentNullException(\"entity\"); } entity.CreatedByUserId = userId; entity.UpdatedByUserId = userId; this.entities.Add(entity); this.context.SaveChanges(); } }"
+  },
+  "client/era-apilogger.apiexception._constructor_.html": {
+    "href": "client/era-apilogger.apiexception._constructor_.html",
+    "title": "ApiException.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > (constructor) ApiException.(constructor) Constructs a new instance of the ApiException class Signature: constructor(message: string, status: number, response: string, headers: { [key: string]: any; }, result: any); Parameters Parameter Type Description message string status number response string headers { [key: string]: any; } result any"
+  },
+  "client/era-apilogger.apiexception.headers.html": {
+    "href": "client/era-apilogger.apiexception.headers.html",
+    "title": "ApiException.headers property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > headers ApiException.headers property Signature: headers: { [key: string]: any; };"
+  },
+  "client/era-apilogger.apiexception.html": {
+    "href": "client/era-apilogger.apiexception.html",
+    "title": "ApiException class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException ApiException class Signature: export declare class ApiException extends Error Extends: Error Constructors Constructor Modifiers Description (constructor)(message, status, response, headers, result) Constructs a new instance of the ApiException class Properties Property Modifiers Type Description headers { [key: string]: any; } isApiException boolean message string response string result any status number Methods Method Modifiers Description isApiException(obj) static"
+  },
+  "client/era-apilogger.apiexception.isapiexception.html": {
+    "href": "client/era-apilogger.apiexception.isapiexception.html",
+    "title": "ApiException.isApiException property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > isApiException ApiException.isApiException property Signature: protected isApiException: boolean;"
+  },
+  "client/era-apilogger.apiexception.message.html": {
+    "href": "client/era-apilogger.apiexception.message.html",
+    "title": "ApiException.message property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > message ApiException.message property Signature: message: string;"
+  },
+  "client/era-apilogger.apiexception.response.html": {
+    "href": "client/era-apilogger.apiexception.response.html",
+    "title": "ApiException.response property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > response ApiException.response property Signature: response: string;"
+  },
+  "client/era-apilogger.apiexception.result.html": {
+    "href": "client/era-apilogger.apiexception.result.html",
+    "title": "ApiException.result property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > result ApiException.result property Signature: result: any;"
+  },
+  "client/era-apilogger.apiexception.status.html": {
+    "href": "client/era-apilogger.apiexception.status.html",
+    "title": "ApiException.status property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ApiException > status ApiException.status property Signature: status: number;"
+  },
+  "client/era-apilogger.argumentexception._constructor_.html": {
+    "href": "client/era-apilogger.argumentexception._constructor_.html",
+    "title": "ArgumentException.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > (constructor) ArgumentException.(constructor) Constructs a new instance of the ArgumentException class Signature: constructor(data?: IArgumentException); Parameters Parameter Type Description data IArgumentException"
+  },
+  "client/era-apilogger.argumentexception.fromjs.html": {
+    "href": "client/era-apilogger.argumentexception.fromjs.html",
+    "title": "ArgumentException.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > fromJS ArgumentException.fromJS() method Signature: static fromJS(data: any): ArgumentException; Parameters Parameter Type Description data any Returns: ArgumentException"
+  },
+  "client/era-apilogger.argumentexception.html": {
+    "href": "client/era-apilogger.argumentexception.html",
+    "title": "ArgumentException class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException ArgumentException class Signature: export declare class ArgumentException extends SystemException implements IArgumentException Extends: SystemException Implements: IArgumentException Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the ArgumentException class Properties Property Modifiers Type Description message? string | undefined (Optional) paramName? string | undefined (Optional) Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.argumentexception.init.html": {
+    "href": "client/era-apilogger.argumentexception.init.html",
+    "title": "ArgumentException.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > init ArgumentException.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.argumentexception.message.html": {
+    "href": "client/era-apilogger.argumentexception.message.html",
+    "title": "ArgumentException.message property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > message ArgumentException.message property Signature: message?: string | undefined;"
+  },
+  "client/era-apilogger.argumentexception.paramname.html": {
+    "href": "client/era-apilogger.argumentexception.paramname.html",
+    "title": "ArgumentException.paramName property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > paramName ArgumentException.paramName property Signature: paramName?: string | undefined;"
+  },
+  "client/era-apilogger.argumentexception.tojson.html": {
+    "href": "client/era-apilogger.argumentexception.tojson.html",
+    "title": "ArgumentException.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ArgumentException > toJSON ArgumentException.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.clientbase._constructor_.html": {
+    "href": "client/era-apilogger.clientbase._constructor_.html",
+    "title": "ClientBase.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ClientBase > (constructor) ClientBase.(constructor) Constructs a new instance of the ClientBase class Signature: constructor(configuration: ConfigureRequest); Parameters Parameter Type Description configuration ConfigureRequest"
+  },
+  "client/era-apilogger.clientbase.getbaseurl.html": {
+    "href": "client/era-apilogger.clientbase.getbaseurl.html",
+    "title": "ClientBase.getBaseUrl() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ClientBase > getBaseUrl ClientBase.getBaseUrl() method Signature: protected getBaseUrl(_defaultUrl: string, baseUrl?: string): string; Parameters Parameter Type Description _defaultUrl string baseUrl string Returns: string"
+  },
+  "client/era-apilogger.clientbase.html": {
+    "href": "client/era-apilogger.clientbase.html",
+    "title": "ClientBase class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ClientBase ClientBase class Signature: export declare class ClientBase Constructors Constructor Modifiers Description (constructor)(configuration) Constructs a new instance of the ClientBase class Methods Method Modifiers Description getBaseUrl(_defaultUrl, baseUrl) transformOptions(options)"
+  },
+  "client/era-apilogger.clientbase.transformoptions.html": {
+    "href": "client/era-apilogger.clientbase.transformoptions.html",
+    "title": "ClientBase.transformOptions() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ClientBase > transformOptions ClientBase.transformOptions() method Signature: protected transformOptions(options: RequestInit): Promise<RequestInit>; Parameters Parameter Type Description options RequestInit Returns: Promise<RequestInit>"
+  },
+  "client/era-apilogger.configurerequest.html": {
+    "href": "client/era-apilogger.configurerequest.html",
+    "title": "ConfigureRequest interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ConfigureRequest ConfigureRequest interface Signature: export interface ConfigureRequest Properties Property Type Description moduleId number"
+  },
+  "client/era-apilogger.configurerequest.moduleid.html": {
+    "href": "client/era-apilogger.configurerequest.moduleid.html",
+    "title": "ConfigureRequest.moduleId property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ConfigureRequest > moduleId ConfigureRequest.moduleId property Signature: moduleId: number;"
+  },
+  "client/era-apilogger.createitemdto._constructor_.html": {
+    "href": "client/era-apilogger.createitemdto._constructor_.html",
+    "title": "CreateItemDTO.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > (constructor) CreateItemDTO.(constructor) Constructs a new instance of the CreateItemDTO class Signature: constructor(data?: ICreateItemDTO); Parameters Parameter Type Description data ICreateItemDTO"
+  },
+  "client/era-apilogger.createitemdto.description.html": {
+    "href": "client/era-apilogger.createitemdto.description.html",
+    "title": "CreateItemDTO.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > description CreateItemDTO.description property Gets or sets the description of the item. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.createitemdto.fromjs.html": {
+    "href": "client/era-apilogger.createitemdto.fromjs.html",
+    "title": "CreateItemDTO.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > fromJS CreateItemDTO.fromJS() method Signature: static fromJS(data: any): CreateItemDTO; Parameters Parameter Type Description data any Returns: CreateItemDTO"
+  },
+  "client/era-apilogger.createitemdto.html": {
+    "href": "client/era-apilogger.createitemdto.html",
+    "title": "CreateItemDTO class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO CreateItemDTO class Data transfer object to create a new item. Signature: export declare class CreateItemDTO implements ICreateItemDTO Implements: ICreateItemDTO Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the CreateItemDTO class Properties Property Modifiers Type Description description? string | undefined (Optional) Gets or sets the description of the item. name string Gets or sets the name for the item. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.createitemdto.init.html": {
+    "href": "client/era-apilogger.createitemdto.init.html",
+    "title": "CreateItemDTO.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > init CreateItemDTO.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.createitemdto.name.html": {
+    "href": "client/era-apilogger.createitemdto.name.html",
+    "title": "CreateItemDTO.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > name CreateItemDTO.name property Gets or sets the name for the item. Signature: name: string;"
+  },
+  "client/era-apilogger.createitemdto.tojson.html": {
+    "href": "client/era-apilogger.createitemdto.tojson.html",
+    "title": "CreateItemDTO.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > CreateItemDTO > toJSON CreateItemDTO.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.exception._constructor_.html": {
+    "href": "client/era-apilogger.exception._constructor_.html",
+    "title": "Exception.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > (constructor) Exception.(constructor) Constructs a new instance of the Exception class Signature: constructor(data?: IException); Parameters Parameter Type Description data IException"
+  },
+  "client/era-apilogger.exception.fromjs.html": {
+    "href": "client/era-apilogger.exception.fromjs.html",
+    "title": "Exception.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > fromJS Exception.fromJS() method Signature: static fromJS(data: any): Exception; Parameters Parameter Type Description data any Returns: Exception"
+  },
+  "client/era-apilogger.exception.html": {
+    "href": "client/era-apilogger.exception.html",
+    "title": "Exception class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception Exception class Signature: export declare class Exception implements IException Implements: IException Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the Exception class Properties Property Modifiers Type Description innerException? Exception | undefined (Optional) message? string | undefined (Optional) source? string | undefined (Optional) stackTrace? string | undefined (Optional) Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.exception.init.html": {
+    "href": "client/era-apilogger.exception.init.html",
+    "title": "Exception.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > init Exception.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.exception.innerexception.html": {
+    "href": "client/era-apilogger.exception.innerexception.html",
+    "title": "Exception.innerException property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > innerException Exception.innerException property Signature: innerException?: Exception | undefined;"
+  },
+  "client/era-apilogger.exception.message.html": {
+    "href": "client/era-apilogger.exception.message.html",
+    "title": "Exception.message property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > message Exception.message property Signature: message?: string | undefined;"
+  },
+  "client/era-apilogger.exception.source.html": {
+    "href": "client/era-apilogger.exception.source.html",
+    "title": "Exception.source property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > source Exception.source property Signature: source?: string | undefined;"
+  },
+  "client/era-apilogger.exception.stacktrace.html": {
+    "href": "client/era-apilogger.exception.stacktrace.html",
+    "title": "Exception.stackTrace property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > stackTrace Exception.stackTrace property Signature: stackTrace?: string | undefined;"
+  },
+  "client/era-apilogger.exception.tojson.html": {
+    "href": "client/era-apilogger.exception.tojson.html",
+    "title": "Exception.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > Exception > toJSON Exception.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.html": {
+    "href": "client/era-apilogger.html",
+    "title": "era-apilogger package",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger era-apilogger package Classes Class Description ApiException ArgumentException ClientBase CreateItemDTO Data transfer object to create a new item. Exception ItemClient ItemsPageViewModel Represents a page of items, Item. ItemViewModel Represents the basic information about an item. LocalizationClient LocalizationViewModel A viewmodel that exposes all resource keys in strong types. ModelValidationInfo Localized strings for the ModelValidation resources. SystemException UIInfo Localized strings for the UI resources. UpdateItemDTO Data transfer object used to update an item. Interfaces Interface Description ConfigureRequest IArgumentException ICreateItemDTO Data transfer object to create a new item. IException IItemsPageViewModel Represents a page of items, Item. IItemViewModel Represents the basic information about an item. ILocalizationViewModel A viewmodel that exposes all resource keys in strong types. IModelValidationInfo Localized strings for the ModelValidation resources. ISystemException IUIInfo Localized strings for the UI resources. IUpdateItemDTO Data transfer object used to update an item."
+  },
+  "client/era-apilogger.iargumentexception.html": {
+    "href": "client/era-apilogger.iargumentexception.html",
+    "title": "IArgumentException interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IArgumentException IArgumentException interface Signature: export interface IArgumentException extends ISystemException Extends: ISystemException Properties Property Type Description message? string | undefined (Optional) paramName? string | undefined (Optional)"
+  },
+  "client/era-apilogger.iargumentexception.message.html": {
+    "href": "client/era-apilogger.iargumentexception.message.html",
+    "title": "IArgumentException.message property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IArgumentException > message IArgumentException.message property Signature: message?: string | undefined;"
+  },
+  "client/era-apilogger.iargumentexception.paramname.html": {
+    "href": "client/era-apilogger.iargumentexception.paramname.html",
+    "title": "IArgumentException.paramName property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IArgumentException > paramName IArgumentException.paramName property Signature: paramName?: string | undefined;"
+  },
+  "client/era-apilogger.icreateitemdto.description.html": {
+    "href": "client/era-apilogger.icreateitemdto.description.html",
+    "title": "ICreateItemDTO.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ICreateItemDTO > description ICreateItemDTO.description property Gets or sets the description of the item. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.icreateitemdto.html": {
+    "href": "client/era-apilogger.icreateitemdto.html",
+    "title": "ICreateItemDTO interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ICreateItemDTO ICreateItemDTO interface Data transfer object to create a new item. Signature: export interface ICreateItemDTO Properties Property Type Description description? string | undefined (Optional) Gets or sets the description of the item. name string Gets or sets the name for the item."
+  },
+  "client/era-apilogger.icreateitemdto.name.html": {
+    "href": "client/era-apilogger.icreateitemdto.name.html",
+    "title": "ICreateItemDTO.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ICreateItemDTO > name ICreateItemDTO.name property Gets or sets the name for the item. Signature: name: string;"
+  },
+  "client/era-apilogger.iexception.html": {
+    "href": "client/era-apilogger.iexception.html",
+    "title": "IException interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IException IException interface Signature: export interface IException Properties Property Type Description innerException? Exception | undefined (Optional) message? string | undefined (Optional) source? string | undefined (Optional) stackTrace? string | undefined (Optional)"
+  },
+  "client/era-apilogger.iexception.innerexception.html": {
+    "href": "client/era-apilogger.iexception.innerexception.html",
+    "title": "IException.innerException property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IException > innerException IException.innerException property Signature: innerException?: Exception | undefined;"
+  },
+  "client/era-apilogger.iexception.message.html": {
+    "href": "client/era-apilogger.iexception.message.html",
+    "title": "IException.message property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IException > message IException.message property Signature: message?: string | undefined;"
+  },
+  "client/era-apilogger.iexception.source.html": {
+    "href": "client/era-apilogger.iexception.source.html",
+    "title": "IException.source property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IException > source IException.source property Signature: source?: string | undefined;"
+  },
+  "client/era-apilogger.iexception.stacktrace.html": {
+    "href": "client/era-apilogger.iexception.stacktrace.html",
+    "title": "IException.stackTrace property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IException > stackTrace IException.stackTrace property Signature: stackTrace?: string | undefined;"
+  },
+  "client/era-apilogger.iitemspageviewmodel.html": {
+    "href": "client/era-apilogger.iitemspageviewmodel.html",
+    "title": "IItemsPageViewModel interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemsPageViewModel IItemsPageViewModel interface Represents a page of items, Item. Signature: export interface IItemsPageViewModel Properties Property Type Description items? ItemViewModel <!-- --> [] | undefined (Optional) Gets or sets a list of items for this page. page number Gets or sets the current page number. pageCount number Gets or sets the total amount of pages available. resultCount number Gets or sets the total amount of results found."
+  },
+  "client/era-apilogger.iitemspageviewmodel.items.html": {
+    "href": "client/era-apilogger.iitemspageviewmodel.items.html",
+    "title": "IItemsPageViewModel.items property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemsPageViewModel > items IItemsPageViewModel.items property Gets or sets a list of items for this page. Signature: items?: ItemViewModel[] | undefined;"
+  },
+  "client/era-apilogger.iitemspageviewmodel.page.html": {
+    "href": "client/era-apilogger.iitemspageviewmodel.page.html",
+    "title": "IItemsPageViewModel.page property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemsPageViewModel > page IItemsPageViewModel.page property Gets or sets the current page number. Signature: page: number;"
+  },
+  "client/era-apilogger.iitemspageviewmodel.pagecount.html": {
+    "href": "client/era-apilogger.iitemspageviewmodel.pagecount.html",
+    "title": "IItemsPageViewModel.pageCount property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemsPageViewModel > pageCount IItemsPageViewModel.pageCount property Gets or sets the total amount of pages available. Signature: pageCount: number;"
+  },
+  "client/era-apilogger.iitemspageviewmodel.resultcount.html": {
+    "href": "client/era-apilogger.iitemspageviewmodel.resultcount.html",
+    "title": "IItemsPageViewModel.resultCount property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemsPageViewModel > resultCount IItemsPageViewModel.resultCount property Gets or sets the total amount of results found. Signature: resultCount: number;"
+  },
+  "client/era-apilogger.iitemviewmodel.description.html": {
+    "href": "client/era-apilogger.iitemviewmodel.description.html",
+    "title": "IItemViewModel.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemViewModel > description IItemViewModel.description property Gets or sets the item description. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.iitemviewmodel.html": {
+    "href": "client/era-apilogger.iitemviewmodel.html",
+    "title": "IItemViewModel interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemViewModel IItemViewModel interface Represents the basic information about an item. Signature: export interface IItemViewModel Properties Property Type Description description? string | undefined (Optional) Gets or sets the item description. id number Gets or sets the id of the item. name string Gets or sets the name of the item."
+  },
+  "client/era-apilogger.iitemviewmodel.id.html": {
+    "href": "client/era-apilogger.iitemviewmodel.id.html",
+    "title": "IItemViewModel.id property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemViewModel > id IItemViewModel.id property Gets or sets the id of the item. Signature: id: number;"
+  },
+  "client/era-apilogger.iitemviewmodel.name.html": {
+    "href": "client/era-apilogger.iitemviewmodel.name.html",
+    "title": "IItemViewModel.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IItemViewModel > name IItemViewModel.name property Gets or sets the name of the item. Signature: name: string;"
+  },
+  "client/era-apilogger.ilocalizationviewmodel.html": {
+    "href": "client/era-apilogger.ilocalizationviewmodel.html",
+    "title": "ILocalizationViewModel interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ILocalizationViewModel ILocalizationViewModel interface A viewmodel that exposes all resource keys in strong types. Signature: export interface ILocalizationViewModel Properties Property Type Description modelValidation? ModelValidationInfo | undefined (Optional) Localized strings present the ModelValidation resources. uI? UIInfo | undefined (Optional) Localized strings present the UI resources."
+  },
+  "client/era-apilogger.ilocalizationviewmodel.modelvalidation.html": {
+    "href": "client/era-apilogger.ilocalizationviewmodel.modelvalidation.html",
+    "title": "ILocalizationViewModel.modelValidation property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ILocalizationViewModel > modelValidation ILocalizationViewModel.modelValidation property Localized strings present the ModelValidation resources. Signature: modelValidation?: ModelValidationInfo | undefined;"
+  },
+  "client/era-apilogger.ilocalizationviewmodel.ui.html": {
+    "href": "client/era-apilogger.ilocalizationviewmodel.ui.html",
+    "title": "ILocalizationViewModel.uI property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ILocalizationViewModel > uI ILocalizationViewModel.uI property Localized strings present the UI resources. Signature: uI?: UIInfo | undefined;"
+  },
+  "client/era-apilogger.imodelvalidationinfo.html": {
+    "href": "client/era-apilogger.imodelvalidationinfo.html",
+    "title": "IModelValidationInfo interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IModelValidationInfo IModelValidationInfo interface Localized strings for the ModelValidation resources. Signature: export interface IModelValidationInfo Properties Property Type Description idGreaterThanZero? string | undefined (Optional) Gets or sets the IdGreaterThanZero localized text. nameRequired? string | undefined (Optional) Gets or sets the NameRequired localized text."
+  },
+  "client/era-apilogger.imodelvalidationinfo.idgreaterthanzero.html": {
+    "href": "client/era-apilogger.imodelvalidationinfo.idgreaterthanzero.html",
+    "title": "IModelValidationInfo.idGreaterThanZero property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IModelValidationInfo > idGreaterThanZero IModelValidationInfo.idGreaterThanZero property Gets or sets the IdGreaterThanZero localized text. Signature: idGreaterThanZero?: string | undefined;"
+  },
+  "client/era-apilogger.imodelvalidationinfo.namerequired.html": {
+    "href": "client/era-apilogger.imodelvalidationinfo.namerequired.html",
+    "title": "IModelValidationInfo.nameRequired property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IModelValidationInfo > nameRequired IModelValidationInfo.nameRequired property Gets or sets the NameRequired localized text. Signature: nameRequired?: string | undefined;"
+  },
+  "client/era-apilogger.isystemexception.html": {
+    "href": "client/era-apilogger.isystemexception.html",
+    "title": "ISystemException interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ISystemException ISystemException interface Signature: export interface ISystemException extends IException Extends: IException"
+  },
+  "client/era-apilogger.itemclient._constructor_.html": {
+    "href": "client/era-apilogger.itemclient._constructor_.html",
+    "title": "ItemClient.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > (constructor) ItemClient.(constructor) Constructs a new instance of the ItemClient class Signature: constructor(configuration: ConfigureRequest, baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response>; }); Parameters Parameter Type Description configuration ConfigureRequest baseUrl string http { fetch(url: RequestInfo, init?: RequestInit): Promise<Response>; }"
+  },
+  "client/era-apilogger.itemclient.createitem.html": {
+    "href": "client/era-apilogger.itemclient.createitem.html",
+    "title": "ItemClient.createItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > createItem ItemClient.createItem() method Creates a new item. Signature: createItem(item: CreateItemDTO | null | undefined, signal?: AbortSignal | undefined): Promise<ItemViewModel>; Parameters Parameter Type Description item CreateItemDTO | null | undefined (optional) The item to create. OK signal AbortSignal | undefined Returns: Promise< ItemViewModel <!-- --> >"
+  },
+  "client/era-apilogger.itemclient.deleteitem.html": {
+    "href": "client/era-apilogger.itemclient.deleteitem.html",
+    "title": "ItemClient.deleteItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > deleteItem ItemClient.deleteItem() method Deletes an existing item. Signature: deleteItem(itemId: number, signal?: AbortSignal | undefined): Promise<void>; Parameters Parameter Type Description itemId number The id of the item to delete. OK signal AbortSignal | undefined Returns: Promise<void>"
+  },
+  "client/era-apilogger.itemclient.getitemspage.html": {
+    "href": "client/era-apilogger.itemclient.getitemspage.html",
+    "title": "ItemClient.getItemsPage() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > getItemsPage ItemClient.getItemsPage() method Gets a paged and sorted list of items matching a certain query. Signature: getItemsPage(query: string | null | undefined, page: number | undefined, pageSize: number | undefined, descending: boolean | undefined, signal?: AbortSignal | undefined): Promise<ItemsPageViewModel>; Parameters Parameter Type Description query string | null | undefined (optional) Gets or sets the optional search query. page number | undefined (optional) Gets or sets the page number to get. pageSize number | undefined (optional) Gets or sets the size of pages. descending boolean | undefined (optional) Gets or sets a value indicating whether the items should be ordered descending. OK signal AbortSignal | undefined Returns: Promise< ItemsPageViewModel <!-- --> >"
+  },
+  "client/era-apilogger.itemclient.html": {
+    "href": "client/era-apilogger.itemclient.html",
+    "title": "ItemClient class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient ItemClient class Signature: export declare class ItemClient extends ClientBase Extends: ClientBase Constructors Constructor Modifiers Description (constructor)(configuration, baseUrl, http) Constructs a new instance of the ItemClient class Properties Property Modifiers Type Description jsonParseReviver ((key: string, value: any) => any) | undefined Methods Method Modifiers Description createItem(item, signal) Creates a new item. deleteItem(itemId, signal) Deletes an existing item. getItemsPage(query, page, pageSize, descending, signal) Gets a paged and sorted list of items matching a certain query. processCreateItem(response) processDeleteItem(response) processGetItemsPage(response) processUpdateItem(response) processUserCanEdit(response) updateItem(item, signal) Updates an existing item. userCanEdit(signal) Checks if a user can edit the current items. OK"
+  },
+  "client/era-apilogger.itemclient.jsonparsereviver.html": {
+    "href": "client/era-apilogger.itemclient.jsonparsereviver.html",
+    "title": "ItemClient.jsonParseReviver property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > jsonParseReviver ItemClient.jsonParseReviver property Signature: protected jsonParseReviver: ((key: string, value: any) => any) | undefined;"
+  },
+  "client/era-apilogger.itemclient.processcreateitem.html": {
+    "href": "client/era-apilogger.itemclient.processcreateitem.html",
+    "title": "ItemClient.processCreateItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > processCreateItem ItemClient.processCreateItem() method Signature: protected processCreateItem(response: Response): Promise<ItemViewModel>; Parameters Parameter Type Description response Response Returns: Promise< ItemViewModel <!-- --> >"
+  },
+  "client/era-apilogger.itemclient.processdeleteitem.html": {
+    "href": "client/era-apilogger.itemclient.processdeleteitem.html",
+    "title": "ItemClient.processDeleteItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > processDeleteItem ItemClient.processDeleteItem() method Signature: protected processDeleteItem(response: Response): Promise<void>; Parameters Parameter Type Description response Response Returns: Promise<void>"
+  },
+  "client/era-apilogger.itemclient.processgetitemspage.html": {
+    "href": "client/era-apilogger.itemclient.processgetitemspage.html",
+    "title": "ItemClient.processGetItemsPage() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > processGetItemsPage ItemClient.processGetItemsPage() method Signature: protected processGetItemsPage(response: Response): Promise<ItemsPageViewModel>; Parameters Parameter Type Description response Response Returns: Promise< ItemsPageViewModel <!-- --> >"
+  },
+  "client/era-apilogger.itemclient.processupdateitem.html": {
+    "href": "client/era-apilogger.itemclient.processupdateitem.html",
+    "title": "ItemClient.processUpdateItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > processUpdateItem ItemClient.processUpdateItem() method Signature: protected processUpdateItem(response: Response): Promise<void>; Parameters Parameter Type Description response Response Returns: Promise<void>"
+  },
+  "client/era-apilogger.itemclient.processusercanedit.html": {
+    "href": "client/era-apilogger.itemclient.processusercanedit.html",
+    "title": "ItemClient.processUserCanEdit() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > processUserCanEdit ItemClient.processUserCanEdit() method Signature: protected processUserCanEdit(response: Response): Promise<boolean>; Parameters Parameter Type Description response Response Returns: Promise<boolean>"
+  },
+  "client/era-apilogger.itemclient.updateitem.html": {
+    "href": "client/era-apilogger.itemclient.updateitem.html",
+    "title": "ItemClient.updateItem() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > updateItem ItemClient.updateItem() method Updates an existing item. Signature: updateItem(item: UpdateItemDTO | null | undefined, signal?: AbortSignal | undefined): Promise<void>; Parameters Parameter Type Description item UpdateItemDTO | null | undefined (optional) The new information about the item, UpdateItemDTO. OK signal AbortSignal | undefined Returns: Promise<void>"
+  },
+  "client/era-apilogger.itemclient.usercanedit.html": {
+    "href": "client/era-apilogger.itemclient.usercanedit.html",
+    "title": "ItemClient.userCanEdit() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemClient > userCanEdit ItemClient.userCanEdit() method Checks if a user can edit the current items. OK Signature: userCanEdit(signal?: AbortSignal | undefined): Promise<boolean>; Parameters Parameter Type Description signal AbortSignal | undefined Returns: Promise<boolean>"
+  },
+  "client/era-apilogger.itemspageviewmodel._constructor_.html": {
+    "href": "client/era-apilogger.itemspageviewmodel._constructor_.html",
+    "title": "ItemsPageViewModel.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > (constructor) ItemsPageViewModel.(constructor) Constructs a new instance of the ItemsPageViewModel class Signature: constructor(data?: IItemsPageViewModel); Parameters Parameter Type Description data IItemsPageViewModel"
+  },
+  "client/era-apilogger.itemspageviewmodel.fromjs.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.fromjs.html",
+    "title": "ItemsPageViewModel.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > fromJS ItemsPageViewModel.fromJS() method Signature: static fromJS(data: any): ItemsPageViewModel; Parameters Parameter Type Description data any Returns: ItemsPageViewModel"
+  },
+  "client/era-apilogger.itemspageviewmodel.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.html",
+    "title": "ItemsPageViewModel class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel ItemsPageViewModel class Represents a page of items, Item. Signature: export declare class ItemsPageViewModel implements IItemsPageViewModel Implements: IItemsPageViewModel Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the ItemsPageViewModel class Properties Property Modifiers Type Description items? ItemViewModel <!-- --> [] | undefined (Optional) Gets or sets a list of items for this page. page number Gets or sets the current page number. pageCount number Gets or sets the total amount of pages available. resultCount number Gets or sets the total amount of results found. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.itemspageviewmodel.init.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.init.html",
+    "title": "ItemsPageViewModel.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > init ItemsPageViewModel.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.itemspageviewmodel.items.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.items.html",
+    "title": "ItemsPageViewModel.items property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > items ItemsPageViewModel.items property Gets or sets a list of items for this page. Signature: items?: ItemViewModel[] | undefined;"
+  },
+  "client/era-apilogger.itemspageviewmodel.page.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.page.html",
+    "title": "ItemsPageViewModel.page property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > page ItemsPageViewModel.page property Gets or sets the current page number. Signature: page: number;"
+  },
+  "client/era-apilogger.itemspageviewmodel.pagecount.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.pagecount.html",
+    "title": "ItemsPageViewModel.pageCount property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > pageCount ItemsPageViewModel.pageCount property Gets or sets the total amount of pages available. Signature: pageCount: number;"
+  },
+  "client/era-apilogger.itemspageviewmodel.resultcount.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.resultcount.html",
+    "title": "ItemsPageViewModel.resultCount property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > resultCount ItemsPageViewModel.resultCount property Gets or sets the total amount of results found. Signature: resultCount: number;"
+  },
+  "client/era-apilogger.itemspageviewmodel.tojson.html": {
+    "href": "client/era-apilogger.itemspageviewmodel.tojson.html",
+    "title": "ItemsPageViewModel.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemsPageViewModel > toJSON ItemsPageViewModel.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.itemviewmodel._constructor_.html": {
+    "href": "client/era-apilogger.itemviewmodel._constructor_.html",
+    "title": "ItemViewModel.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > (constructor) ItemViewModel.(constructor) Constructs a new instance of the ItemViewModel class Signature: constructor(data?: IItemViewModel); Parameters Parameter Type Description data IItemViewModel"
+  },
+  "client/era-apilogger.itemviewmodel.description.html": {
+    "href": "client/era-apilogger.itemviewmodel.description.html",
+    "title": "ItemViewModel.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > description ItemViewModel.description property Gets or sets the item description. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.itemviewmodel.fromjs.html": {
+    "href": "client/era-apilogger.itemviewmodel.fromjs.html",
+    "title": "ItemViewModel.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > fromJS ItemViewModel.fromJS() method Signature: static fromJS(data: any): ItemViewModel; Parameters Parameter Type Description data any Returns: ItemViewModel"
+  },
+  "client/era-apilogger.itemviewmodel.html": {
+    "href": "client/era-apilogger.itemviewmodel.html",
+    "title": "ItemViewModel class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel ItemViewModel class Represents the basic information about an item. Signature: export declare class ItemViewModel implements IItemViewModel Implements: IItemViewModel Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the ItemViewModel class Properties Property Modifiers Type Description description? string | undefined (Optional) Gets or sets the item description. id number Gets or sets the id of the item. name string Gets or sets the name of the item. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.itemviewmodel.id.html": {
+    "href": "client/era-apilogger.itemviewmodel.id.html",
+    "title": "ItemViewModel.id property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > id ItemViewModel.id property Gets or sets the id of the item. Signature: id: number;"
+  },
+  "client/era-apilogger.itemviewmodel.init.html": {
+    "href": "client/era-apilogger.itemviewmodel.init.html",
+    "title": "ItemViewModel.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > init ItemViewModel.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.itemviewmodel.name.html": {
+    "href": "client/era-apilogger.itemviewmodel.name.html",
+    "title": "ItemViewModel.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > name ItemViewModel.name property Gets or sets the name of the item. Signature: name: string;"
+  },
+  "client/era-apilogger.itemviewmodel.tojson.html": {
+    "href": "client/era-apilogger.itemviewmodel.tojson.html",
+    "title": "ItemViewModel.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ItemViewModel > toJSON ItemViewModel.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.iuiinfo.additem.html": {
+    "href": "client/era-apilogger.iuiinfo.additem.html",
+    "title": "IUIInfo.addItem property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > addItem IUIInfo.addItem property Gets or sets the AddItem localized text. Signature: addItem?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.cancel.html": {
+    "href": "client/era-apilogger.iuiinfo.cancel.html",
+    "title": "IUIInfo.cancel property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > cancel IUIInfo.cancel property Gets or sets the Cancel localized text. Signature: cancel?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.create.html": {
+    "href": "client/era-apilogger.iuiinfo.create.html",
+    "title": "IUIInfo.create property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > create IUIInfo.create property Gets or sets the Create localized text. Signature: create?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.delete.html": {
+    "href": "client/era-apilogger.iuiinfo.delete.html",
+    "title": "IUIInfo.delete property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > delete IUIInfo.delete property Gets or sets the Delete localized text. Signature: delete?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.deleteitemconfirm.html": {
+    "href": "client/era-apilogger.iuiinfo.deleteitemconfirm.html",
+    "title": "IUIInfo.deleteItemConfirm property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > deleteItemConfirm IUIInfo.deleteItemConfirm property Gets or sets the DeleteItemConfirm localized text. Signature: deleteItemConfirm?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.description.html": {
+    "href": "client/era-apilogger.iuiinfo.description.html",
+    "title": "IUIInfo.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > description IUIInfo.description property Gets or sets the Description localized text. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.edit.html": {
+    "href": "client/era-apilogger.iuiinfo.edit.html",
+    "title": "IUIInfo.edit property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > edit IUIInfo.edit property Gets or sets the Edit localized text. Signature: edit?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.html": {
+    "href": "client/era-apilogger.iuiinfo.html",
+    "title": "IUIInfo interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo IUIInfo interface Localized strings for the UI resources. Signature: export interface IUIInfo Properties Property Type Description addItem? string | undefined (Optional) Gets or sets the AddItem localized text. cancel? string | undefined (Optional) Gets or sets the Cancel localized text. create? string | undefined (Optional) Gets or sets the Create localized text. delete? string | undefined (Optional) Gets or sets the Delete localized text. deleteItemConfirm? string | undefined (Optional) Gets or sets the DeleteItemConfirm localized text. description? string | undefined (Optional) Gets or sets the Description localized text. edit? string | undefined (Optional) Gets or sets the Edit localized text. loadMore? string | undefined (Optional) Gets or sets the LoadMore localized text. name? string | undefined (Optional) Gets or sets the Name localized text. no? string | undefined (Optional) Gets or sets the No localized text. save? string | undefined (Optional) Gets or sets the Save localized text. searchPlaceholder? string | undefined (Optional) Gets or sets the SearchPlaceholder localized text. shownItems? string | undefined (Optional) Gets or sets the ShownItems localized text. yes? string | undefined (Optional) Gets or sets the Yes localized text."
+  },
+  "client/era-apilogger.iuiinfo.loadmore.html": {
+    "href": "client/era-apilogger.iuiinfo.loadmore.html",
+    "title": "IUIInfo.loadMore property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > loadMore IUIInfo.loadMore property Gets or sets the LoadMore localized text. Signature: loadMore?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.name.html": {
+    "href": "client/era-apilogger.iuiinfo.name.html",
+    "title": "IUIInfo.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > name IUIInfo.name property Gets or sets the Name localized text. Signature: name?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.no.html": {
+    "href": "client/era-apilogger.iuiinfo.no.html",
+    "title": "IUIInfo.no property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > no IUIInfo.no property Gets or sets the No localized text. Signature: no?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.save.html": {
+    "href": "client/era-apilogger.iuiinfo.save.html",
+    "title": "IUIInfo.save property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > save IUIInfo.save property Gets or sets the Save localized text. Signature: save?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.searchplaceholder.html": {
+    "href": "client/era-apilogger.iuiinfo.searchplaceholder.html",
+    "title": "IUIInfo.searchPlaceholder property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > searchPlaceholder IUIInfo.searchPlaceholder property Gets or sets the SearchPlaceholder localized text. Signature: searchPlaceholder?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.shownitems.html": {
+    "href": "client/era-apilogger.iuiinfo.shownitems.html",
+    "title": "IUIInfo.shownItems property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > shownItems IUIInfo.shownItems property Gets or sets the ShownItems localized text. Signature: shownItems?: string | undefined;"
+  },
+  "client/era-apilogger.iuiinfo.yes.html": {
+    "href": "client/era-apilogger.iuiinfo.yes.html",
+    "title": "IUIInfo.yes property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUIInfo > yes IUIInfo.yes property Gets or sets the Yes localized text. Signature: yes?: string | undefined;"
+  },
+  "client/era-apilogger.iupdateitemdto.html": {
+    "href": "client/era-apilogger.iupdateitemdto.html",
+    "title": "IUpdateItemDTO interface",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUpdateItemDTO IUpdateItemDTO interface Data transfer object used to update an item. Signature: export interface IUpdateItemDTO extends ICreateItemDTO Extends: ICreateItemDTO Properties Property Type Description id number Gets or sets the id of the item to edit."
+  },
+  "client/era-apilogger.iupdateitemdto.id.html": {
+    "href": "client/era-apilogger.iupdateitemdto.id.html",
+    "title": "IUpdateItemDTO.id property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > IUpdateItemDTO > id IUpdateItemDTO.id property Gets or sets the id of the item to edit. Signature: id: number;"
+  },
+  "client/era-apilogger.localizationclient._constructor_.html": {
+    "href": "client/era-apilogger.localizationclient._constructor_.html",
+    "title": "LocalizationClient.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationClient > (constructor) LocalizationClient.(constructor) Constructs a new instance of the LocalizationClient class Signature: constructor(configuration: ConfigureRequest, baseUrl?: string, http?: { fetch(url: RequestInfo, init?: RequestInit): Promise<Response>; }); Parameters Parameter Type Description configuration ConfigureRequest baseUrl string http { fetch(url: RequestInfo, init?: RequestInit): Promise<Response>; }"
+  },
+  "client/era-apilogger.localizationclient.getlocalization.html": {
+    "href": "client/era-apilogger.localizationclient.getlocalization.html",
+    "title": "LocalizationClient.getLocalization() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationClient > getLocalization LocalizationClient.getLocalization() method Gets localization keys and values. OK Signature: getLocalization(signal?: AbortSignal | undefined): Promise<LocalizationViewModel>; Parameters Parameter Type Description signal AbortSignal | undefined Returns: Promise< LocalizationViewModel <!-- --> >"
+  },
+  "client/era-apilogger.localizationclient.html": {
+    "href": "client/era-apilogger.localizationclient.html",
+    "title": "LocalizationClient class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationClient LocalizationClient class Signature: export declare class LocalizationClient extends ClientBase Extends: ClientBase Constructors Constructor Modifiers Description (constructor)(configuration, baseUrl, http) Constructs a new instance of the LocalizationClient class Properties Property Modifiers Type Description jsonParseReviver ((key: string, value: any) => any) | undefined Methods Method Modifiers Description getLocalization(signal) Gets localization keys and values. OK processGetLocalization(response)"
+  },
+  "client/era-apilogger.localizationclient.jsonparsereviver.html": {
+    "href": "client/era-apilogger.localizationclient.jsonparsereviver.html",
+    "title": "LocalizationClient.jsonParseReviver property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationClient > jsonParseReviver LocalizationClient.jsonParseReviver property Signature: protected jsonParseReviver: ((key: string, value: any) => any) | undefined;"
+  },
+  "client/era-apilogger.localizationclient.processgetlocalization.html": {
+    "href": "client/era-apilogger.localizationclient.processgetlocalization.html",
+    "title": "LocalizationClient.processGetLocalization() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationClient > processGetLocalization LocalizationClient.processGetLocalization() method Signature: protected processGetLocalization(response: Response): Promise<LocalizationViewModel>; Parameters Parameter Type Description response Response Returns: Promise< LocalizationViewModel <!-- --> >"
+  },
+  "client/era-apilogger.localizationviewmodel._constructor_.html": {
+    "href": "client/era-apilogger.localizationviewmodel._constructor_.html",
+    "title": "LocalizationViewModel.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > (constructor) LocalizationViewModel.(constructor) Constructs a new instance of the LocalizationViewModel class Signature: constructor(data?: ILocalizationViewModel); Parameters Parameter Type Description data ILocalizationViewModel"
+  },
+  "client/era-apilogger.localizationviewmodel.fromjs.html": {
+    "href": "client/era-apilogger.localizationviewmodel.fromjs.html",
+    "title": "LocalizationViewModel.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > fromJS LocalizationViewModel.fromJS() method Signature: static fromJS(data: any): LocalizationViewModel; Parameters Parameter Type Description data any Returns: LocalizationViewModel"
+  },
+  "client/era-apilogger.localizationviewmodel.html": {
+    "href": "client/era-apilogger.localizationviewmodel.html",
+    "title": "LocalizationViewModel class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel LocalizationViewModel class A viewmodel that exposes all resource keys in strong types. Signature: export declare class LocalizationViewModel implements ILocalizationViewModel Implements: ILocalizationViewModel Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the LocalizationViewModel class Properties Property Modifiers Type Description modelValidation? ModelValidationInfo | undefined (Optional) Localized strings present the ModelValidation resources. uI? UIInfo | undefined (Optional) Localized strings present the UI resources. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.localizationviewmodel.init.html": {
+    "href": "client/era-apilogger.localizationviewmodel.init.html",
+    "title": "LocalizationViewModel.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > init LocalizationViewModel.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.localizationviewmodel.modelvalidation.html": {
+    "href": "client/era-apilogger.localizationviewmodel.modelvalidation.html",
+    "title": "LocalizationViewModel.modelValidation property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > modelValidation LocalizationViewModel.modelValidation property Localized strings present the ModelValidation resources. Signature: modelValidation?: ModelValidationInfo | undefined;"
+  },
+  "client/era-apilogger.localizationviewmodel.tojson.html": {
+    "href": "client/era-apilogger.localizationviewmodel.tojson.html",
+    "title": "LocalizationViewModel.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > toJSON LocalizationViewModel.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.localizationviewmodel.ui.html": {
+    "href": "client/era-apilogger.localizationviewmodel.ui.html",
+    "title": "LocalizationViewModel.uI property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > LocalizationViewModel > uI LocalizationViewModel.uI property Localized strings present the UI resources. Signature: uI?: UIInfo | undefined;"
+  },
+  "client/era-apilogger.modelvalidationinfo._constructor_.html": {
+    "href": "client/era-apilogger.modelvalidationinfo._constructor_.html",
+    "title": "ModelValidationInfo.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > (constructor) ModelValidationInfo.(constructor) Constructs a new instance of the ModelValidationInfo class Signature: constructor(data?: IModelValidationInfo); Parameters Parameter Type Description data IModelValidationInfo"
+  },
+  "client/era-apilogger.modelvalidationinfo.fromjs.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.fromjs.html",
+    "title": "ModelValidationInfo.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > fromJS ModelValidationInfo.fromJS() method Signature: static fromJS(data: any): ModelValidationInfo; Parameters Parameter Type Description data any Returns: ModelValidationInfo"
+  },
+  "client/era-apilogger.modelvalidationinfo.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.html",
+    "title": "ModelValidationInfo class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo ModelValidationInfo class Localized strings for the ModelValidation resources. Signature: export declare class ModelValidationInfo implements IModelValidationInfo Implements: IModelValidationInfo Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the ModelValidationInfo class Properties Property Modifiers Type Description idGreaterThanZero? string | undefined (Optional) Gets or sets the IdGreaterThanZero localized text. nameRequired? string | undefined (Optional) Gets or sets the NameRequired localized text. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.modelvalidationinfo.idgreaterthanzero.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.idgreaterthanzero.html",
+    "title": "ModelValidationInfo.idGreaterThanZero property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > idGreaterThanZero ModelValidationInfo.idGreaterThanZero property Gets or sets the IdGreaterThanZero localized text. Signature: idGreaterThanZero?: string | undefined;"
+  },
+  "client/era-apilogger.modelvalidationinfo.init.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.init.html",
+    "title": "ModelValidationInfo.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > init ModelValidationInfo.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.modelvalidationinfo.namerequired.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.namerequired.html",
+    "title": "ModelValidationInfo.nameRequired property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > nameRequired ModelValidationInfo.nameRequired property Gets or sets the NameRequired localized text. Signature: nameRequired?: string | undefined;"
+  },
+  "client/era-apilogger.modelvalidationinfo.tojson.html": {
+    "href": "client/era-apilogger.modelvalidationinfo.tojson.html",
+    "title": "ModelValidationInfo.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > ModelValidationInfo > toJSON ModelValidationInfo.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.systemexception._constructor_.html": {
+    "href": "client/era-apilogger.systemexception._constructor_.html",
+    "title": "SystemException.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > SystemException > (constructor) SystemException.(constructor) Constructs a new instance of the SystemException class Signature: constructor(data?: ISystemException); Parameters Parameter Type Description data ISystemException"
+  },
+  "client/era-apilogger.systemexception.fromjs.html": {
+    "href": "client/era-apilogger.systemexception.fromjs.html",
+    "title": "SystemException.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > SystemException > fromJS SystemException.fromJS() method Signature: static fromJS(data: any): SystemException; Parameters Parameter Type Description data any Returns: SystemException"
+  },
+  "client/era-apilogger.systemexception.html": {
+    "href": "client/era-apilogger.systemexception.html",
+    "title": "SystemException class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > SystemException SystemException class Signature: export declare class SystemException extends Exception implements ISystemException Extends: Exception Implements: ISystemException Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the SystemException class Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.systemexception.init.html": {
+    "href": "client/era-apilogger.systemexception.init.html",
+    "title": "SystemException.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > SystemException > init SystemException.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.systemexception.tojson.html": {
+    "href": "client/era-apilogger.systemexception.tojson.html",
+    "title": "SystemException.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > SystemException > toJSON SystemException.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.uiinfo._constructor_.html": {
+    "href": "client/era-apilogger.uiinfo._constructor_.html",
+    "title": "UIInfo.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > (constructor) UIInfo.(constructor) Constructs a new instance of the UIInfo class Signature: constructor(data?: IUIInfo); Parameters Parameter Type Description data IUIInfo"
+  },
+  "client/era-apilogger.uiinfo.additem.html": {
+    "href": "client/era-apilogger.uiinfo.additem.html",
+    "title": "UIInfo.addItem property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > addItem UIInfo.addItem property Gets or sets the AddItem localized text. Signature: addItem?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.cancel.html": {
+    "href": "client/era-apilogger.uiinfo.cancel.html",
+    "title": "UIInfo.cancel property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > cancel UIInfo.cancel property Gets or sets the Cancel localized text. Signature: cancel?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.create.html": {
+    "href": "client/era-apilogger.uiinfo.create.html",
+    "title": "UIInfo.create property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > create UIInfo.create property Gets or sets the Create localized text. Signature: create?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.delete.html": {
+    "href": "client/era-apilogger.uiinfo.delete.html",
+    "title": "UIInfo.delete property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > delete UIInfo.delete property Gets or sets the Delete localized text. Signature: delete?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.deleteitemconfirm.html": {
+    "href": "client/era-apilogger.uiinfo.deleteitemconfirm.html",
+    "title": "UIInfo.deleteItemConfirm property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > deleteItemConfirm UIInfo.deleteItemConfirm property Gets or sets the DeleteItemConfirm localized text. Signature: deleteItemConfirm?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.description.html": {
+    "href": "client/era-apilogger.uiinfo.description.html",
+    "title": "UIInfo.description property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > description UIInfo.description property Gets or sets the Description localized text. Signature: description?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.edit.html": {
+    "href": "client/era-apilogger.uiinfo.edit.html",
+    "title": "UIInfo.edit property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > edit UIInfo.edit property Gets or sets the Edit localized text. Signature: edit?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.fromjs.html": {
+    "href": "client/era-apilogger.uiinfo.fromjs.html",
+    "title": "UIInfo.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > fromJS UIInfo.fromJS() method Signature: static fromJS(data: any): UIInfo; Parameters Parameter Type Description data any Returns: UIInfo"
+  },
+  "client/era-apilogger.uiinfo.html": {
+    "href": "client/era-apilogger.uiinfo.html",
+    "title": "UIInfo class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo UIInfo class Localized strings for the UI resources. Signature: export declare class UIInfo implements IUIInfo Implements: IUIInfo Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the UIInfo class Properties Property Modifiers Type Description addItem? string | undefined (Optional) Gets or sets the AddItem localized text. cancel? string | undefined (Optional) Gets or sets the Cancel localized text. create? string | undefined (Optional) Gets or sets the Create localized text. delete? string | undefined (Optional) Gets or sets the Delete localized text. deleteItemConfirm? string | undefined (Optional) Gets or sets the DeleteItemConfirm localized text. description? string | undefined (Optional) Gets or sets the Description localized text. edit? string | undefined (Optional) Gets or sets the Edit localized text. loadMore? string | undefined (Optional) Gets or sets the LoadMore localized text. name? string | undefined (Optional) Gets or sets the Name localized text. no? string | undefined (Optional) Gets or sets the No localized text. save? string | undefined (Optional) Gets or sets the Save localized text. searchPlaceholder? string | undefined (Optional) Gets or sets the SearchPlaceholder localized text. shownItems? string | undefined (Optional) Gets or sets the ShownItems localized text. yes? string | undefined (Optional) Gets or sets the Yes localized text. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.uiinfo.init.html": {
+    "href": "client/era-apilogger.uiinfo.init.html",
+    "title": "UIInfo.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > init UIInfo.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.uiinfo.loadmore.html": {
+    "href": "client/era-apilogger.uiinfo.loadmore.html",
+    "title": "UIInfo.loadMore property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > loadMore UIInfo.loadMore property Gets or sets the LoadMore localized text. Signature: loadMore?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.name.html": {
+    "href": "client/era-apilogger.uiinfo.name.html",
+    "title": "UIInfo.name property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > name UIInfo.name property Gets or sets the Name localized text. Signature: name?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.no.html": {
+    "href": "client/era-apilogger.uiinfo.no.html",
+    "title": "UIInfo.no property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > no UIInfo.no property Gets or sets the No localized text. Signature: no?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.save.html": {
+    "href": "client/era-apilogger.uiinfo.save.html",
+    "title": "UIInfo.save property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > save UIInfo.save property Gets or sets the Save localized text. Signature: save?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.searchplaceholder.html": {
+    "href": "client/era-apilogger.uiinfo.searchplaceholder.html",
+    "title": "UIInfo.searchPlaceholder property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > searchPlaceholder UIInfo.searchPlaceholder property Gets or sets the SearchPlaceholder localized text. Signature: searchPlaceholder?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.shownitems.html": {
+    "href": "client/era-apilogger.uiinfo.shownitems.html",
+    "title": "UIInfo.shownItems property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > shownItems UIInfo.shownItems property Gets or sets the ShownItems localized text. Signature: shownItems?: string | undefined;"
+  },
+  "client/era-apilogger.uiinfo.tojson.html": {
+    "href": "client/era-apilogger.uiinfo.tojson.html",
+    "title": "UIInfo.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > toJSON UIInfo.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/era-apilogger.uiinfo.yes.html": {
+    "href": "client/era-apilogger.uiinfo.yes.html",
+    "title": "UIInfo.yes property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UIInfo > yes UIInfo.yes property Gets or sets the Yes localized text. Signature: yes?: string | undefined;"
+  },
+  "client/era-apilogger.updateitemdto._constructor_.html": {
+    "href": "client/era-apilogger.updateitemdto._constructor_.html",
+    "title": "UpdateItemDTO.(constructor)",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO > (constructor) UpdateItemDTO.(constructor) Constructs a new instance of the UpdateItemDTO class Signature: constructor(data?: IUpdateItemDTO); Parameters Parameter Type Description data IUpdateItemDTO"
+  },
+  "client/era-apilogger.updateitemdto.fromjs.html": {
+    "href": "client/era-apilogger.updateitemdto.fromjs.html",
+    "title": "UpdateItemDTO.fromJS() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO > fromJS UpdateItemDTO.fromJS() method Signature: static fromJS(data: any): UpdateItemDTO; Parameters Parameter Type Description data any Returns: UpdateItemDTO"
+  },
+  "client/era-apilogger.updateitemdto.html": {
+    "href": "client/era-apilogger.updateitemdto.html",
+    "title": "UpdateItemDTO class",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO UpdateItemDTO class Data transfer object used to update an item. Signature: export declare class UpdateItemDTO extends CreateItemDTO implements IUpdateItemDTO Extends: CreateItemDTO Implements: IUpdateItemDTO Constructors Constructor Modifiers Description (constructor)(data) Constructs a new instance of the UpdateItemDTO class Properties Property Modifiers Type Description id number Gets or sets the id of the item to edit. Methods Method Modifiers Description fromJS(data) static init(_data) toJSON(data)"
+  },
+  "client/era-apilogger.updateitemdto.id.html": {
+    "href": "client/era-apilogger.updateitemdto.id.html",
+    "title": "UpdateItemDTO.id property",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO > id UpdateItemDTO.id property Gets or sets the id of the item to edit. Signature: id: number;"
+  },
+  "client/era-apilogger.updateitemdto.init.html": {
+    "href": "client/era-apilogger.updateitemdto.init.html",
+    "title": "UpdateItemDTO.init() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO > init UpdateItemDTO.init() method Signature: init(_data?: any): void; Parameters Parameter Type Description _data any Returns: void"
+  },
+  "client/era-apilogger.updateitemdto.tojson.html": {
+    "href": "client/era-apilogger.updateitemdto.tojson.html",
+    "title": "UpdateItemDTO.toJSON() method",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home > era-apilogger > UpdateItemDTO > toJSON UpdateItemDTO.toJSON() method Signature: toJSON(data?: any): any; Parameters Parameter Type Description data any Returns: any"
+  },
+  "client/index.html": {
+    "href": "client/index.html",
+    "title": "API Reference",
+    "keywords": "<!-- Do not edit this file. It is automatically generated by API Documenter. --> Home API Reference Packages Package Description era-apilogger"
+  },
+  "components/index.html": {
+    "href": "components/index.html",
+    "title": "Stencil Component Starter",
+    "keywords": "Stencil Component Starter This is a starter project for building a standalone Web Component using Stencil. Stencil is also great for building entire apps. For that, use the stencil-app-starter instead. Stencil Stencil is a compiler for building fast web apps using Web Components. Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec. Stencil components are just Web Components, so they work in any major framework or with no framework at all. Getting Started To start building a new web component using Stencil, clone this repo to a new directory: git clone https://github.com/ionic-team/stencil-component-starter.git my-component cd my-component git remote rm origin and run: npm install npm start To build the component for production, run: npm run build To run the unit tests for the components, run: npm test Need help? Check out our docs here . Naming Components When creating new component tags, we recommend not using stencil in the component name (ex: <stencil-datepicker> ). This is because the generated component has little to nothing to do with Stencil; it's just a web component! Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix ion . Using this component Script tag Publish to NPM Put a script tag similar to this <script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script> in the head of your index.html Then you can use the element anywhere in your template, JSX, html etc Node Modules Run npm install my-component --save Put a script tag similar to this <script src='node_modules/my-component/dist/mycomponent.js'></script> in the head of your index.html Then you can use the element anywhere in your template, JSX, html etc In a stencil-starter app Run npm install my-component --save Add an import to the npm packages import my-component; Then you can use the element anywhere in your template, JSX, html etc"
+  },
+  "components/my-component.html": {
+    "href": "components/my-component.html",
+    "title": "my-component",
+    "keywords": "my-component Root component that does all the module rendering. <!-- Auto Generated Below --> Usage Dnn In Dnn SPA module content (when the view is an .html file), you can use some tokens to inject the module id. Learn more about those tokens at DnnDocs . In this example we use [[AntiForgeryToken:True]] to secure our api calls and ensure they only come from our page. We also use [ModuleContext:ModuleId] in order to inject our module id so we can call the proper apis and have a module context in the backend. [AntiForgeryToken:True] <script type=\"module\" src=\"DesktopModules/Contacts/resources/scripts/acm-contacts/acm-contacts.esm.js\"></script> <script nomodule=\"\" src=\"DesktopModules/Contacts/resources/scripts/acm-contacts/acm-contacts.js\"></script> <my-component module-id=\"[ModuleContext:ModuleId]\" /> Javascript Simply load the javascript library, provide it a module id and you are good to go. <!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <title>Document</title> <script type=\"module\" src=\"some-path/acm-contacts.esm.js\"></script> <script nomodule=\"\" src=\"some-path/acm-contacts.js\"></script> </head> <body> <my-component module-id=\"123\" /> </body> </html> Properties Property Attribute Description Type Default moduleId (required) module-id The Dnn module id, required in order to access web services. number undefined Dependencies Depends on dnn-searchbox my-create my-items-list Graph graph TD; my-component --> dnn-searchbox my-component --> my-create my-component --> my-items-list my-create --> dnn-button my-create --> dnn-modal my-create --> my-edit dnn-button --> dnn-modal dnn-button --> dnn-button my-edit --> dnn-button my-items-list --> dnn-chevron my-items-list --> dnn-collapsible my-items-list --> my-item-details my-items-list --> dnn-button my-item-details --> dnn-button my-item-details --> dnn-modal my-item-details --> my-edit style my-component fill:#f9f,stroke:#333,stroke-width:4px Built with StencilJS"
+  },
+  "components/my-create.html": {
+    "href": "components/my-create.html",
+    "title": "my-create",
+    "keywords": "my-create <!-- Auto Generated Below --> Dependencies Used by my-component Depends on dnn-button dnn-modal my-edit Graph graph TD; my-create --> dnn-button my-create --> dnn-modal my-create --> my-edit dnn-button --> dnn-modal dnn-button --> dnn-button my-edit --> dnn-button my-component --> my-create style my-create fill:#f9f,stroke:#333,stroke-width:4px Built with StencilJS"
+  },
+  "components/my-edit.html": {
+    "href": "components/my-edit.html",
+    "title": "my-edit",
+    "keywords": "my-edit <!-- Auto Generated Below --> Properties Property Attribute Description Type Default item -- The item to create or edit. IItemViewModel undefined Events Event Description Type itemCreated Fires up when an item got created. CustomEvent<any> Methods resetForm() => Promise<void> Resets the form to insert a new item. Returns Type: Promise<void> setFocus() => Promise<void> Sets focus on the first form element Returns Type: Promise<void> Dependencies Used by my-create my-item-details Depends on dnn-button Graph graph TD; my-edit --> dnn-button dnn-button --> dnn-modal dnn-button --> dnn-button my-create --> my-edit my-item-details --> my-edit style my-edit fill:#f9f,stroke:#333,stroke-width:4px Built with StencilJS"
+  },
+  "components/my-item-details.html": {
+    "href": "components/my-item-details.html",
+    "title": "my-item-details",
+    "keywords": "my-item-details <!-- Auto Generated Below --> Properties Property Attribute Description Type Default item (required) -- The item to display IItemViewModel undefined Dependencies Used by my-items-list Depends on dnn-button dnn-modal my-edit Graph graph TD; my-item-details --> dnn-button my-item-details --> dnn-modal my-item-details --> my-edit dnn-button --> dnn-modal dnn-button --> dnn-button my-edit --> dnn-button my-items-list --> my-item-details style my-item-details fill:#f9f,stroke:#333,stroke-width:4px Built with StencilJS"
+  },
+  "components/my-items-list.html": {
+    "href": "components/my-items-list.html",
+    "title": "my-items-list",
+    "keywords": "my-items-list <!-- Auto Generated Below --> Properties Property Attribute Description Type Default pageSize page-size Defines how many items to fetch per request. number 100 preloadPixels preload-pixels Defines how many pixels under the fold to preload. number 1000 Dependencies Used by my-component Depends on dnn-chevron dnn-collapsible my-item-details dnn-button Graph graph TD; my-items-list --> dnn-chevron my-items-list --> dnn-collapsible my-items-list --> my-item-details my-items-list --> dnn-button my-item-details --> dnn-button my-item-details --> dnn-modal my-item-details --> my-edit dnn-button --> dnn-modal dnn-button --> dnn-button my-edit --> dnn-button my-component --> my-items-list style my-items-list fill:#f9f,stroke:#333,stroke-width:4px Built with StencilJS"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Eraware API Logger Documentation.",
+    "keywords": "Eraware API Logger Documentation. Getting Started Backend API Documentation"
+  },
+  "rest/rest-api.html": {
+    "href": "rest/rest-api.html",
+    "title": "",
+    "keywords": ""
+  }
+}
