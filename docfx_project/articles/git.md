@@ -70,4 +70,4 @@ We simply have to return to github repository settings and set the source for th
 > Do not select a theme in the settings, this is for Jekyll sites which we are not using. Also, it may take Github a few minutes to publish your site.
 ![Setup Github Docs](../images/setup-git-docs.gif)
 
-What you are seeing in Visual Studio now is only some snippets to get you started until the full documentation is published, now that this is done, you can view the full documentation at [https://{owner}.github.io/{repository}](https://{owner}.github.io/{repository}/articles/git.html#documentation)
+What you are seeing in Visual Studio now is only some snippets to get you started until the full documentation is published, now that this is done, you can view the full documentation at [https://valadas.github.io/ApiLogger](https://valadas.github.io/ApiLogger/articles/git.html#documentation)

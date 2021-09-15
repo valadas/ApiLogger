@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Common.Globals.html",
-          "hash": "Tc/tzlccZTdCUFoUopw8ig=="
+          "hash": "bMS1tya/0TndnwXsUBLO2Q=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Controllers.ItemController.html",
-          "hash": "KvU9jq+aN4HWM11WjsQ1bw=="
+          "hash": "3AV1q1oAM9aR+n0EKyoGmQ=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Controllers.LocalizationController.html",
-          "hash": "fE3JmNMtbGcaza8Le4gxsA=="
+          "hash": "HHrbUN5papRCvTJsD7xsiA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Controllers.ModuleApiController.html",
-          "hash": "/p4hLSDUXrOVk38KlVDojQ=="
+          "hash": "CHWxXS1FWKu1pL9IAsQIvA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Controllers.ServiceRouteMapper.html",
-          "hash": "IqPuEeKHiGVfd6TmKdVkzw=="
+          "hash": "6uOtnP0XzMiMWYl43i0TPQ=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.DTO.CreateItemDTO.html",
-          "hash": "UhWfNbLu06Ib/yPFNPSbyw=="
+          "hash": "w84NGHT8huDj7SHMysPacQ=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.DTO.GetItemsPageDTO.html",
-          "hash": "hh96+bxs76AY5nLw63cd+g=="
+          "hash": "fUqXBIJ0LfwVCy2PyxgtMQ=="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.DTO.UpdateItemDTO.html",
-          "hash": "tQJhEd0Xw/52aMqJcfI01w=="
+          "hash": "4IeHcEjb3XyPlIFEh3r+CA=="
         }
       },
       "is_incremental": false,
@@ -150,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.Entities.BaseEntity.html",
-          "hash": "pfjeYEVrM7VdSjQ+38tzvA=="
+          "hash": "hWwugnP2WVxAs6wIsiwvjg=="
         }
       },
       "is_incremental": false,
@@ -162,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.Entities.IEntity.html",
-          "hash": "w27/ridBbYmkRL2e68vZZg=="
+          "hash": "+x173IDlII294qx3QZpm/w=="
         }
       },
       "is_incremental": false,
@@ -174,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.Entities.Item.html",
-          "hash": "QysVVG1iu5h/TdP44d6N5g=="
+          "hash": "uCpqb3tvgBC20gRvn4HQAg=="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.ModuleDbContext.html",
-          "hash": "cXFxUI8TstKLDx7D53kK4A=="
+          "hash": "A65gM9ZHd0eU1f+lwoZS7A=="
         }
       },
       "is_incremental": false,
@@ -210,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.Repositories.IRepository-1.html",
-          "hash": "y9sGmCeZPtGs2CZB9XMEQQ=="
+          "hash": "qTIrAfu4dc89VK0HhViY+w=="
         }
       },
       "is_incremental": false,
@@ -222,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Data.Repositories.Repository-1.html",
-          "hash": "ZZ4sOgqCzueZx5uDYkrNmQ=="
+          "hash": "U2oVug/RIiF5MU3l72b76Q=="
         }
       },
       "is_incremental": false,
@@ -258,7 +258,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Services.IItemService.html",
-          "hash": "6vdJfNCo72BUFPzjjXw9PA=="
+          "hash": "KGEvb9HdO660xnqrIsJ7oQ=="
         }
       },
       "is_incremental": false,
@@ -270,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Services.ILocalizationService.html",
-          "hash": "97TxnJewNyPZRGQTl9LT0g=="
+          "hash": "6yaf9Kb21maeTy1P+ORJxw=="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Services.ItemService.html",
-          "hash": "ftnJKxJAhdek1QSbB/TVCA=="
+          "hash": "1YDsE1WJT32yiQ097+8GwA=="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Services.LocalizationService.html",
-          "hash": "U7eCqFehzrjzjmx8GTrpXA=="
+          "hash": "U5pKRAGnJ2l5Ch17J7mQ4A=="
         }
       },
       "is_incremental": false,
@@ -318,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.Startup.html",
-          "hash": "26M/n/gKp6OE2Q6Y1a2Fig=="
+          "hash": "mWUuR5Lfod2DofkOESBKyA=="
         }
       },
       "is_incremental": false,
@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.ViewModels.ItemViewModel.html",
-          "hash": "9m5Stz3YyAaUILSf0MbG1A=="
+          "hash": "dehJpsALzdf4buQhYIuscw=="
         }
       },
       "is_incremental": false,
@@ -342,7 +342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.ViewModels.ItemsPageViewModel.html",
-          "hash": "KdE5NE8pwBIO+F4HItXOww=="
+          "hash": "1EEMZVF0Gm8dAAPGyeIciA=="
         }
       },
       "is_incremental": false,
@@ -354,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.ModelValidationInfo.html",
-          "hash": "0ySHPlskkBpaJ8pO1ZejxQ=="
+          "hash": "2s3Rk8ZdU2QeOl1CrmrxTQ=="
         }
       },
       "is_incremental": false,
@@ -366,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.UIInfo.html",
-          "hash": "0CRezH1LXZ1uKMwc0BORrA=="
+          "hash": "Zpf3Xzf8UKDIgGoD9teL1Q=="
         }
       },
       "is_incremental": false,
@@ -378,7 +378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Eraware.Modules.ApiLogger.ViewModels.LocalizationViewModel.html",
-          "hash": "bpq/KR/5/a9SxrqQ8/aumw=="
+          "hash": "n+Pzbuj9DCvcf4KrpsreMw=="
         }
       },
       "is_incremental": false,
@@ -444,7 +444,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/git.html",
-          "hash": "deVggKsD5YT2UrxcimXWkg=="
+          "hash": "UxxVUa0OP8HOPQ+KBZ6giA=="
         }
       },
       "is_incremental": false,
@@ -2670,25 +2670,23 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 174,
-          "skipped_file_count": 0
+          "skipped_file_count": 173
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 33,
-          "skipped_file_count": 0
+          "skipped_file_count": 9
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,

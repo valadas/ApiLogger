@@ -11,4 +11,4 @@ Built by Daniel Valadas @valadas
 
 If you like this template consider sponsoring at (https://github.com/sponsors/valadas)
 
-[Documentation](https://{owner}.github.io/{repository}/index.html)
+[Documentation](https://valadas.github.io/ApiLogger/index.html)
